@@ -1,0 +1,517 @@
+
+#wrap {counter-reset: itemCount;}
+
+header {position: relative; z-index: 10;}
+#banner {position: relative; overflow: hidden; background-color: #39619d;}
+#banner a {overflow: hidden; display: block; margin: auto; width: 980px; height: 70px; transition: height 0.6s;}
+/*height: 70px;을 줘야 애니메이션 줄수 있어 없으면 오토이기때문에*/
+:checked~header #banner {height: 0;}
+#banner a img {/*display: block;*/}
+#banner label {position: absolute; top: 20px; right: 20px; width: 30px; height: 30px; /*background-color: #fff;*/ background-image: url(../img/banner_close.png); background-position: -110px -31px; text-indent: -9999px;}
+
+header .hdWrap {}
+header .hdWrap .gnb {position: relative; z-index: 1; background-color: #f0f0f0;}
+header .hdWrap .gnb a {color: #333; font-size: 11px; line-height: 32px; white-space: nowrap;}
+header .hdWrap .gnb li {position: relative; float: left; margin-left: 12px;}
+header .hdWrap .gnb li .detail {display: none; position: absolute; top: 100%; padding: 20px; border: 1px soild #ddd; background-color: #fff;; box-shadow: 0px 4px 5px rgba(0,0,0,0.3);}
+header .hdWrap .gnb li:hover .detail {display: block;}
+header .hdWrap .gnb li .detail a {display: block; font-size: 12px; line-height: 1;}
+header .hdWrap .gnb li .detail a:hover {color: #4285f4; text-decoration: underline;}
+header .hdWrap .gnb li .detail a+a {margin-top: 12px;}
+header .hdWrap .gnb .favorite {float: left;}
+header .hdWrap .gnb .favorite li:nth-child(2)>a {position: relative; padding-right: 12px;}
+header .hdWrap .gnb .favorite li:nth-child(2)>a:after {content: ""; position: absolute; right: 0; top: 4px;  border-width: 4px 4px 0; border-top-color: #333;}
+header .hdWrap .gnb .favorite .detail {right: -12px;}
+header .hdWrap .gnb .member {float: right; margin-right: 37px;}
+header .hdWrap .gnb .member .detail {right: -37px;}
+
+header .hdWrap .hdCnt {}
+header .hdWrap .hdCnt .cateWrap {float:left; position: relative;}
+header .hdWrap .hdCnt .cateWrap .category {padding-top: 70px; width: 110px; height: 115px; text-align: center; color: #fff; font-size: 13px; background-image: url(../img/bg_hd.png); background-position: 0 0; cursor: pointer;}
+
+header .hdWrap .hdCnt .cateWrap .cate {display: none; position: absolute; top: 100%; left: 0; border: 1px solid #ddd; box-shadow: 0px 4px 5px rgba(0,0,0,0.3);}
+/*18.11.12*/
+header .hdWrap .hdCnt .cateWrap:hover .cate {display:block;}
+header .hdWrap .hdCnt .cateWrap .cate ul {padding: 6px 0 5px;} 
+header .hdWrap .hdCnt .cateWrap .cate li:after {content: ""; display: block; clear: both;} /*clearfix*/
+header .hdWrap .hdCnt .cateWrap .cate a {position: relative; float: left; color: #333; font-size: 12px; line-height: 29px;}
+header .hdWrap .hdCnt .cateWrap .cate :hover>a {color: #4885f4; font-weight: 700; text-decoration: underline;}/* >해주는이유:li(cateItem1)바로뒤에있는 a태그에만 영향을 받아야하니까 */
+header .hdWrap .hdCnt .cateWrap .cate .new:after {content: ""; position: absolute; top: 8px; left: 100%; margin-left: 4px; width: 12px; height: 12px; background-image: url(../img/ico_new.png); background-size: 12px;} /*글로벌로 뽑아냄*/
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 {/*padding: 6px 0 5px; 위에 ul로 공통속성*/width: 165px; background-color: #fff;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList1+.cateList1{border-top: 1px solid #ddd;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1 {padding-left: 51px; background-image: url(../img/cate.png); background-position-x: -8px;}
+/* 
+이렇게 적어줘도 되고 index에 직접 스타일로 적어줘도된다. 공통의 x축은 공통으로 한번만 적어주고 바뀌는 y축만 따로 준다.
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1:nth-child(1):hover {background-position-y: -27px;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1:nth-child(2):hover {background-position-y: -27px;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1:nth-child(3):hover {background-position-y: -27px;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1:nth-child(4):hover {background-position-y: -27px;}
+*/
+/*header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1:after {content: ""; display: block; clear: both;} clearfix 위에 li로 공통속성*/
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1:hover {background-position-x: -200px;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1 .cateName1 {/*position: relative; float: left;위에 a로 공통속성 적어줌*/ /*이것때문에 clearfix N넣어주기위해 수축형으로 만들어서 오른쪽에 넣어주려고*//* color: #333; font-size: 12px; line-height: 29px; 위에 a로 공통속성 적어줌*/}
+/*
+header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1 .cateName1.new:after {content: ""; position: absolute; top: 8px; left: 100%; margin-left: 4px; width: 12px; height: 12px; background-image: url(../img/ico_new.png); background-size: 12px;} 
+*/
+/*header .hdWrap .hdCnt .cateWrap .cate .cateList1 .cateItem1 .cateName1:hover {color: #4885f4; font-weight: 700; text-decoration: underline;}  위에 a로 공통속성 적어줌*/
+
+header .hdWrap .hdCnt .cateWrap .cate .cateList2 {display: none; position: absolute; top: -1px; bottom: -1px; /*absolute는 패딩값부터 시작해서 0 0주면 보더값이 빠진채로 생성된다.*/  left: 100%; width: 590px;  background-color: #fff; border: 1px solid #ddd; box-shadow: 2px 4px 5px rgba(0,0,0,0.3); /*왼쪽에 생기는 shadow가려주려고 2px*/}
+header .hdWrap .hdCnt .cateWrap .cate :hover>.cateList2 {display: block;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList2 .bgLink {position: absolute; top: 0; bottom: 0; right: 0; width: 433px; background-image: url(../img/cate_bg_01.jpg); background-position: 100% 100%;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList2 .bgLink a {display: block; width: 100%; height: 100%;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList2 .cateItem2 {padding-left: 20px; width: 157px;}
+/*header .hdWrap .hdCnt .cateWrap .cate .cateList2 .cateItem2:after {content: ""; display: block; clear: both;} clearfix 위에 li로 공통속성 */
+header .hdWrap .hdCnt .cateWrap .cate .cateList2 .cateItem2 .cateName2 {}
+
+header .hdWrap .hdCnt .cateWrap .cate .cateList3 {display: none; position: absolute; top: -1px; bottom: -1px; left: 100%; margin-left: -433px;	border-left: 1px solid #ddd;}
+header .hdWrap .hdCnt .cateWrap .cate :hover>.cateList3 {display: block;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList3 .cateItem3 {padding-left: 20px;}
+header .hdWrap .hdCnt .cateWrap .cate .cateList3 .cateItem3 .cateName3 {}
+
+
+
+header .hdWrap .hdCnt .cntArea {float:left; margin: 28px 0 0 30px;}
+header .hdWrap .hdCnt .cntArea .searchWrap {}
+header .hdWrap .hdCnt .cntArea .searchWrap h1 {float: left;}
+header .hdWrap .hdCnt .cntArea .searchWrap h1 a {display: block; width: 174px;height: 41px;	background-image: url(../img/logo_00.png); background-size: 100%; text-indent: 	-9999px;}
+
+
+
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap {float: left; border: 2px solid #4285f4; margin-left: 20px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap input {float: left; line-height: 37px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect {position: relative; float: left; width: 134px; height: 37px; border-right: 1px solid #ddd;}
+
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selected {position: relative; display: block; color: #555; font-size: 12px; line-height: 37px; }
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selected:before {content: "선택"; margin-left: 10px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selected:after {content: ""; position: absolute; right: 10px; top: 50%;  margin-top: -2px; border-width: 5px 5px 0 5px; border-color: #999 transparent;}
+/*header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selected:hover:after {margin-top: -3px; border-width: 0 5px 5px 5px;}*/
+/*:hover는 임시 나중에는 셀렉트 됐을때 되어야해 */
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selectDetail {display: none;; position: absolute; overflow: auto; top: 100%; left: 0; right: 0; height: 300px; background-color: #fff; border: 1px solid #ddd; box-shadow: 0px 4px 5px rgba(0,0,0,0.3);}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selectDetail ul {padding: 10px 0 10px 13px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selectDetail ul li {}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selectDetail ul li label {display: block; font-size: 12px; line-height: 28px; letter-spacing: -1px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect .selectDetail ul li label:hover {color: #008cff; text-decoration: underline;}
+
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .mic {float: left; width: 23px;	height: 37px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .mic i {display: block; height: 24px; margin-top: 7px; background-image: url(../img/mic.png); background-position-y: 0; background-size: 20px; text-indent: -9999px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .mic :checked+i {background-position-y: 100%;}
+/*background-position x축은 기본값 50% 걸려있어서 -y로 바꿔줌*/
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap [type=text] {width: 310px; text-indent: 10px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap [type=text]::placeholder {color: #333; font-size: 14px;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap [type=text]:focus::placeholder {/*opacity: 0; color: #fff; font-size: 0;*/ visibility: hidden; /*이거 다 사용가능*/}
+/*::placeholder 가상선택자는 앞에 ::두개*/
+/*:focus검색창에 커서가면 글씨 안보이게 하고싶을때*/
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap [type=submit] {width: 50px; background-image: url(../img/bg_hd.png); background-position: -112px -71px; text-indent: -9999px;}
+
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap [type=submit] {width: 50px;}
+
+/* checked */
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect #btnSelect:checked~.selectDetail {display: block;}
+header .hdWrap .hdCnt .cntArea .searchWrap .barWrap .barSelect #btnSelect:checked~.selected:after {margin-top: -3px; border-width: 0 5px 5px 5px;}
+#bar_all:checked~.selected:before {content: "전체";}
+#bar_season:checked~.selected:before {content: "시즌관";}
+#bar_woman:checked~.selected:before {content: "여성패션";}
+#bar_man:checked~.selected:before {content: "남성패션";}
+#bar_baby:checked~.selected:before {content: "베이비패션 (0~3세)";}
+#bar_girl:checked~.selected:before {content: "여아패션 (3세 이상)";}
+#bar_boy:checked~.selected:before {content: "남아패션 (3세 이상)";}
+#bar_sports:checked~.selected:before {content: "스포츠패션";}
+#bar_shose:checked~.selected:before {content: "신발";}
+#bar_bag:checked~.selected:before {content: "가방/잡화";}
+#bar_luxury:checked~.selected:before {content: "명품패션";}
+#bar_beauty:checked~.selected:before {content: "뷰티";}
+
+
+header .hdWrap .hdCnt .cntArea  nav {margin-top: 11px;}
+header .hdWrap .hdCnt .cntArea  nav ul {overflow: hidden;}
+header .hdWrap .hdCnt .cntArea  nav ul li {float: left;}
+header .hdWrap .hdCnt .cntArea  nav ul li.rocket {padding-left: 10px; background-image: url(../img/bg_hd.png); background-position: 0 -116px;}
+header .hdWrap .hdCnt .cntArea  nav ul li a {display: block; padding: 0 14px; font-size: 12px; color: #333; line-height: 32px;}
+header .hdWrap .hdCnt .userPage {float:left;}
+header .hdWrap .hdCnt .userPage .pageList {float:left; margin: 20px 0 0 22px; width: 50px; text-align: center;}
+header .hdWrap .hdCnt .userPage .pageList>a {display: block;}
+header .hdWrap .hdCnt .userPage .pageList>a:before {content: ""; margin: auto; display: block; background-image: url(../img/bg_hd.png);}
+header .hdWrap .hdCnt .userPage span {color: #333; font-size: 12px;}
+header .hdWrap .hdCnt .userPage .myPage {}
+header .hdWrap .hdCnt .userPage .myPage a:before {margin: 8px auto 4px; width: 30px; height: 29px; background-position: -112px -42px;}
+header .hdWrap .hdCnt .userPage .cart {position: relative;}
+header .hdWrap .hdCnt .userPage .cart>a:before {width: 40px; height: 41px; background-position: -112px 0;}
+/*header .hdWrap .hdCnt .userPage .cart>a:after {content: "0"; position: absolute; top: 4px; right: 15px; color: #fff; font-family: tahoma; font-size: 10px; font-weight: bold;} 아래로 이동 .itemLength와 .itemLength:afte */
+header .hdWrap .hdCnt .userPage .cart .cartDetail {/*display: none; 원래 이거사용했는데 counter-reset하기 위해 visibility: hidden로 바꿈*/ visibility: hidden; position: absolute; padding-top: 20px; top: 100%; right: -20px; /*counter-reset: itemCount; 컨테이너 aside에 공통으로 사용하기 위해 접점인 wrap으로 위치 옮겨줌*/}
+header .hdWrap .hdCnt .userPage .cart:hover .cartDetail {/*display: block; 위에 visibility: hidden줘서 visibility: visible로 바꿈 */ visibility: visible;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm {position: relative; width: 302px; border: 1px solid #ddd; box-shadow: 0 4px 5px rgba(0,0,0,0.3); background-color: #fff;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm:before {content: ""; position: absolute; top: -6px; right: 40px; width: 10px; height: 10px; border-width: 1px 1px 0 0; border-color: #ddd; background-color: #fff; transform: rotate(-45deg);}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul {padding: 0 20px; }
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul li {padding: 10px 0; counter-increment: itemCount;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul li+li {border-top: 1px solid #ddd;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul:empty:after {content: "장바구니에 담긴 상품이 없습니다."; display: block; line-height: 70px; text-align: center; font-size: 12px; line-height: 110px;}
+/*empty 비어있다는 것*/
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul li a {display: block; text-align: left; font-size: 0;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul li a span {display: inline-block; vertical-align: middle;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul li a .thumb {}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul li a .thumb img {width: 72px;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul li a .prodName {margin-left: 12px; width: 176px; font-size: 12px;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul li a:hover .prodName {color: #4285f4; text-decoration: underline;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm .viewCart {position: relative; display: block; line-height: 60px; border-top: 1px solid #ddd; text-align: center; font-size: 12px; color: #333; background-color: #fafafa;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm .viewCart:hover {color: #4285f4; text-decoration: underline;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm .viewCart:after {content: ""; position: absolute; top: 25px; right: 87px; width: 6px; height: 9px; background-image: url(../img/bg_hd.png); background-position: -143px -51px;}
+header .hdWrap .hdCnt .userPage .cart .cartDetail .detailFrm ul:empty+.viewCart {display: none;}
+
+header .hdWrap .hdCnt .userPage .cart .itemLength {position: absolute; top: 4px; right: 15px; color: #fff; font-family: tahoma; font-size: 10px; font-weight: bold;}
+header .hdWrap .hdCnt .userPage .cart .itemLength:after {content: counter(itemCount);}
+
+/* header .gnb .favorite li {float: left;} 공통속성이라 한개로 만듬 */
+/* header .gnb .member li {float: left;} 공통속성이라 한개로 만듬 */
+/* white-space: nowrap 줄바꿈 안시켜주는것 */
+/* z-index는 포지션 있어야 사용가능해서 걸어줌 */
+/* h1과 .barWrap에 플루트레프트 걸어주니까 부모인 .searchWra에 오버플로우 히든 해줘야 되는데 그러면 서치밑에 바가 나올수 없으니까 이때 클리어픽스를 걸어준다 */
+/* 이미지 백그라운드 주는방법 (#banner label에서 닫기)
+* IR방식 이미지 좌표값을 바꿔가면서 주는것
+* IS방식 이미지 하나하나 잘라서 백그라운드 주는 방식
+- 차이점 :  속도 */
+
+/* a태그안에는 a 못들어가고 label안에도 a 못들어간다. */
+
+#container {}
+
+#visual {position: relative; text-indent: -9999px; height: 450px;}
+#visual .btnVisual {position: absolute; /*z-index: 1;*/ left: 50%; margin-left: 320px; width: 176px; height: 56px; border: 1px solid #fff;}
+#visual .btnVisual:hover {border: 2px solid #4285f4;}
+#visual .bgVisual {display: none; height: 450px;}
+#visual .bgVisual:hover {display: block;}
+#visual .bgVisual a {position: static;} /*position 해제 or btnVisual에 z-index: 1줘도되*/
+#visual /*.btnVisual*/:nth-of-type(1):hover~/*.bgVisual*/:nth-of-type(1),
+#visual /*.btnVisual*/:nth-of-type(2):hover~/*.bgVisual*/:nth-of-type(2),
+#visual /*.btnVisual*/:nth-of-type(3):hover~/*.bgVisual*/:nth-of-type(3),
+#visual /*.btnVisual*/:nth-of-type(4):hover~/*.bgVisual*/:nth-of-type(4),
+#visual /*.btnVisual*/:nth-of-type(5):hover~/*.bgVisual*/:nth-of-type(5),
+#visual /*.btnVisual*/:nth-of-type(6):hover~/*.bgVisual*/:nth-of-type(6) {display: block;}
+#visual:not(:hover) .bgVisual:nth-of-type(1) {display: block;}
+
+#content {}
+#content aside {z-index: 1; /*.info보다 .thumb가 앞에오려고? */ position: absolute; width: 102px; /*여기에 absolute 걸려있어서 자식만큼 수축되므로 recentDetail 만들때 부모크기가 정해져있지않아 자식의 제일 큰 크기만큼 가져와버려서 width 줬다.*/ top: 88px; left: 100%; margin-left: -10px;}
+#content aside .banner {display: block; width: 102px; height: 150px; background-image: url(../img/ad.jpg); text-indent: -9999px;}
+#content aside .util {margin-top: 10px;}
+#content aside .util a.asidebtn {display: block; position: relative; height: 33px; background-image: url(../img/bg_04.png); background-position-x: -31px; text-indent: -9999px;}
+#content aside .util>div/*a*/:after {position: absolute; top: 10px; right: 7px; color: #3abbff; font-family: Arial; font-size: 12px; font-weight: bold; text-indent: 0;}
+/*a 없애준이유 recent:after에도 속성 공통으로 주려고 그리고 기존에 a에는 position: relative 걸려있어서 제대로 나오는데 .recent에는 안걸려있어 위치잡지못하므로 position: relative주기*/
+#content aside .util .cart {position: relative;} /*.util>div, .cart:after해줘서 relative걸어줌 .pageView:after에 .util>div:after 를 걸어주면 안되서*/
+#content aside .util .cart a {background-position-y: 0;}
+#content aside .util .cart/*a*/:after {content: counter(itemCount);}
+#content aside .util .cart a:hover {background-position-y: -33px;}
+#content aside .util .recent {position: relative; counter-reset: recentList;}
+#content aside .util .recent:after {content: counter(recentList);}
+#content aside .util .recent a {background-position-y: -66px;}
+/*#content aside .util .recent a:after {content: "8";} 여기다 주면 밑에 최근본 상품보다 먼저 나오기 때문에 recent에 넣으면 li보다 나주에 나오기 때문에 옮겨준다.*/
+#content aside .util .recent .recentDetail {border-width: 0 1px 1px; border-color: #ddd; /*or border: 1px solid #ddd; border-top: 0;*//* or margin-top: -1px;*/ counter-reset: pageCount;}
+#content aside .util .recent .recentDetail ul {/*overflow: hidden; 임시로 가리기 위해 걸어줬던것*/ padding: 2px 0 8px; width: 100%; height: 338px;}
+#content aside .util .recent .recentDetail ul li {position: relative; overflow: hidden;	float: right; margin: 0px 13px 0 0; height: 0; counter-increment: recentList;}
+#content aside .util .recent .recentDetail ul li:nth-child(4n+1) {counter-increment: pageCount recentList;}
+/*li가 나올때마다 recentList가 증가하는데 li중에 1, 5, 9가 나왔을 때는 pageCount 증가하랬으니까 중복 적용이 안되서 같이 증가 되야하니까 여기에도 걸어줌*/
+#content aside .util .recent .recentDetail ul li a {overflow: hidden; position: relative; display: block; /*width: 219px;*/ width: 74px;}
+#content aside .util .recent .recentDetail ul li:hover a {width: 219px;}
+#content aside .util .recent .recentDetail ul li:hover a:before {content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0px; border: 2px solid #333;}
+/*가상요소를 position: absolute로 띄어준 다음에 안에 넓이에 영향을 안주고 보더 주기위해서*/
+#content aside .util .recent .recentDetail ul li a .info {display: none; float: left; padding: 20px 10px; width: 145px; height: 74px; background-color: #f1f1f1; }
+#content aside .util .recent .recentDetail ul li:hover a .info {display: block; }
+#content aside .util .recent .recentDetail ul li a .info .prodName {display: block; color: #555; font-size: 11px;}
+#content aside .util .recent .recentDetail ul li a .info .price {display: block; margin-top: 6px; color: #0096e4; font-size: 15px; font-weight: 700;}
+#content aside .util .recent .recentDetail ul li a .info .price:after {content: " 원"; font-size: 12px;}
+
+#content aside .util .recent .recentDetail ul li a .thumb {float: left; top: 2px; left: -1px; width: 74px; height: 70px; background-size: 72px/*100%*/;} /*위치안맞아서top,left내가맞춰준것*/
+#content aside .util .recent .recentDetail ul li .btn_close {display: none; position: absolute; top: 0; right: 0; width: 13px; height: 13px; background-image: url(../img/bg_04.png); background-position: 0 -32px; text-indent: -9999px;}
+#content aside .util .recent .recentDetail ul li:hover .btn_close {display: block;}
+
+#content aside .util .recent .recentDetail .controlArea {overflow: hidden; padding: 0 15px 14px;}
+#content aside .util .recent .recentDetail .controlArea .pageView {float: left; margin-top: 2px; color: #555; font-size: 11px;}
+#content aside .util .recent .recentDetail .controlArea .pageView:before {color: #0085da; font-weight: bold;}
+#content aside .util .recent .recentDetail .controlArea .pageView:after {content: "/" counter(pageCount); }
+#content aside .util .recent .recentDetail .controlArea .pageArrow {float: right;}
+#content aside .util .recent .recentDetail .controlArea .pageArrow label {display: none; float: left; width: 16px; height: 16px; background-image: url(../img/bg_04.png); background-position-y: 0; text-indent: -9999px;}
+#content aside .util .recent .recentDetail .controlArea .pageArrow label.prev {background-position-x: 0;}
+#content aside .util .recent .recentDetail .controlArea .pageArrow label.next {background-position-x: -15px;}
+
+#content aside .util .recent .recentDetail #page1:checked~ul li.page1,
+#content aside .util .recent .recentDetail #page2:checked~ul li.page2,
+#content aside .util .recent .recentDetail #page3:checked~ul li.page3 {height: 74px; margin-top: 8px;}
+#content aside .util .recent .recentDetail #page1:checked~.controlArea .pageView:before {content: "1";}
+#content aside .util .recent .recentDetail #page2:checked~.controlArea .pageView:before {content: "2";}
+#content aside .util .recent .recentDetail #page3:checked~.controlArea .pageView:before {content: "3";}
+#content aside .util .recent .recentDetail #page1:checked~.controlArea .pageArrow .page1,
+#content aside .util .recent .recentDetail #page2:checked~.controlArea .pageArrow .page2,
+#content aside .util .recent .recentDetail #page3:checked~.controlArea .pageArrow .page3 {display: block;}
+
+/*섹션을 id로바꿔서 앞에 #content 지워도 된다.*/
+#content section {padding-top: 40px;}
+#content section:not(#trend) {padding-right: 40px;} /* section의 class중에 List로 끝나는 (^시작 $끝 *포함) */
+#content section h3 {margin-bottom: 15px; text-indent: -9999px;}
+#content section .sectionCnt {}
+#content #today {}
+#content #today h3 {width: 355px; height: 33px; background-image: url(../img/bg_01.png); background-position: 0 -65px;}
+#content #today .sectionCnt {overflow: hidden; padding: 7px; border: 1px solid #ddd;}
+#content #today .sectionCnt a {float: left; position: relative; margin: 6px; width: 229px; height: 299px; border: 1px solid #ddd; text-indent: -9999px;}
+#content #today .sectionCnt a:hover {border-color: #0096e4}
+#content #today .sectionCnt a:before {position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.05);}
+#content #today .sectionCnt a:hover:before {content: "";}
+#content #today .sectionCnt a:after {content: ""; position: absolute; bottom: 20px; left: 20px; width: 40px; height: 40px; background-image: url(../img/bg_01.png); background-position: -515px -236px;}
+#content #today .sectionCnt a:hover:after {width: 100px; background-position-x: -563px;}
+#content #today .sectionCnt a.wide {width: 470px;}
+
+#content #cart {}
+#content #cart h3 {width: 187px; height: 33px; background-image: url(../img/bg_01.png); background-position: -396px -570px;}
+#content #cart .sectionCnt {position: relative;}
+#content #cart .sectionCnt ul {overflow: hidden;}
+#content #cart .sectionCnt ul li {display: none; float: left; width: 188px; border: 1px solid #ddd;}
+#content #cart .sectionCnt ul li:hover {border-color: #0085da}
+#content #cart .sectionCnt ul li:not(:nth-child(5n+1)) {margin-left: 10px;}
+#content #cart .sectionCnt ul li a {display: block;}
+#content #cart .sectionCnt ul li a .thumb {position: relative; display: block; height: 186px;}
+
+
+/* 공통으로 뽑아내기
+#content .cartList .sectionCnt ul li a .thumb:after {position: absolute; padding: 3px 4px 2px; left: 0; bottom: 0; color: #fff; font-size: 11px;}
+#content .cartList .sectionCnt ul li.delivaryFree a .thumb:after {content: "무료배송";  background-color: #5ea403;}
+#content .cartList .sectionCnt ul li.almostSoldout a .thumb:after {content: "품절임박"; background-color: rgb(174,0,0);}*/
+
+
+#content #cart .sectionCnt ul li a .info {display: block; padding: 15px 12px; height: 100px;}
+#content #cart .sectionCnt ul li a .info .prodName {display: block; font-size: 12px;}
+#content #cart .sectionCnt ul li a .info .price {display: block; margin-top: 5px; font-size: 14px; /*font-weight: bold; font-family: Tahoma;*/}
+/*#content .cartList .sectionCnt ul li a .info .price:after {content: "원";}*/
+#content #cart .sectionCnt ul li a .info .price em {margin-right: 4px; color: #db0f31; font-family: Dotum; font-size: 15px; letter-spacing: -1px;}
+#content #cart .sectionCnt ul li a .info .price em:after {content: "%"; }
+#content #cart .sectionCnt .controlArea {position: absolute;/*.sectionCnt기준*/ right: 0; bottom: 100%; margin-bottom: 17px; width: 104px; text-align: center; /*인라인에 못줘서 부모인 여기다*/}
+#content #cart .sectionCnt .controlArea .pageView {line-height: 28px;}
+#content #cart .sectionCnt .controlArea label {display: none; position: absolute; top: 0; width: 28px; height: 28px; text-indent: -9999px; background-image: url(../img/bg_01.png); background-position-y: -513px;}
+
+#content #cart .sectionCnt .controlArea label:first-of-type,
+#content #cart .sectionCnt .controlArea label:last-of-type {background-position-y: -552px;}
+#content #cart .sectionCnt .controlArea label.prev {left: 0; background-position-x: 0;}
+#content #cart .sectionCnt .controlArea label.next {right: 0; background-position-x: -76px;}
+
+#cart #cartPage1:checked~ul li.page1,
+#cart #cartPage2:checked~ul li.page2,
+#cart #cartPage3:checked~ul li.page3 {display: block;}
+#cart #cartPage1:checked~.controlArea .pageView:before {content: "1";}
+#cart #cartPage2:checked~.controlArea .pageView:before {content: "2";}
+#cart #cartPage3:checked~.controlArea .pageView:before {content: "3";}
+#cart #cartPage1:checked~.controlArea .page1,
+#cart #cartPage2:checked~.controlArea .page2,
+#cart #cartPage3:checked~.controlArea .page3 {display: block;}
+
+
+#content #recent {}
+#content #recent h3 {height: 25px; background-image: url(../img/bg_02.png); background-position: 0 0;}
+#content #recent .sectionCnt {position: relative; overflow: hidden; height: 404px;}
+#content #recent .sectionCnt .cntArea {float: left; width: 245px;}
+#content #recent .sectionCnt .cntArea+.cntArea {margin-left: -1px; width: 246px;}
+#content #recent .sectionCnt .cntArea .recentBtn {overflow: hidden; position: relative; display: block; padding: 20px; /*height: 104px;*/ border-width: 1px 1px 0; border-color: #ddd;}
+#content #recent .sectionCnt .cntArea .recentBtn .thumb {float: left;}
+#content #recent .sectionCnt .cntArea .recentBtn .thumb img {/*display: block;*/} /*img버그 때문에*/
+#content #recent .sectionCnt .cntArea .recentBtn .info {float: right; width: 130px; font-size: 11px; margin-top: 3px;}
+#content #recent .sectionCnt .cntArea .recentBtn .info .pronName {display: block;}
+#content #recent .sectionCnt .cntArea .recentBtn .info .price {display: block; /*font-family: tahoma; font-weight: bold;*/ margin: 4px 0 6px;}
+#content #recent .sectionCnt .cntArea .recentBtn .info .price:after {/*content: "원";*/ font-weight: normal;}
+#content #recent .sectionCnt .cntArea .recentBtn .info .link {color: #0085da;}
+#content #recent .sectionCnt .cntArea .recentBtn .info .link:after {content: " >";}
+#content #recent .sectionCnt .cntArea .recentBtn .info .link:hover {text-decoration: underline;}
+
+#content #recent .sectionCnt .cntArea :not(:checked)~.recentBtn {border-bottom: 1px solid #0085da;}
+#content #recent .sectionCnt .cntArea :checked~.recentBtn,
+#content #recent .sectionCnt .cntArea .recentBtn:hover {border-color: #0085da; z-index: 1;}
+/* border가 왜 .recentBtn 에? z인덱스가 있단건 포지션이란 얘기 .cntArea가 포지션이 되면 .recentvieW도 포지션인데 .cntArea얘기준으로 배치되어야 하기 때문에 .cntArea가 포지션이 되면 안되! */
+#content #recent .sectionCnt .cntArea .recentvieW {display: none; position: absolute; top: 107px; bottom: 0; left: 0; right: 0; border-width:  0 1px 1px; border-color: #0085da; padding: 0 29px;}
+#content #recent .sectionCnt .cntArea :checked~.recentvieW {display: block;}
+#content #recent .sectionCnt .cntArea .recentvieW h4 {height: 39px; background-image: url(../img/bg_02.png); background-position: 0 -35px; text-indent: -9999px;}
+#content #recent .sectionCnt .cntArea .recentvieW ul {overflow: hidden;}
+#content #recent .sectionCnt .cntArea .recentvieW ul li {float: left; width: 168px;}
+#content #recent .sectionCnt .cntArea .recentvieW ul li+li {margin-left: 20px;}
+/*#content .recentList .sectionCnt .cntArea .recentvieW ul li:not(:nth-child(5n+1)) {margin-left: 20px;} 슬라이드할거면*/
+#content #recent .sectionCnt .cntArea .recentvieW ul li a {display: block;}
+#content #recent .sectionCnt .cntArea .recentvieW ul li a .thumb {display: block; background-position: 0 0; border: 1px solid #ddd;}
+#content #recent .sectionCnt .cntArea .recentvieW ul li:hover a .thumb {border-color: #0085da;}
+#content #recent .sectionCnt .cntArea .recentvieW ul li a .thumb img {/*display: block;*/}
+#content #recent .sectionCnt .cntArea .recentvieW ul li a .info {display: block;}
+#content #recent .sectionCnt .cntArea .recentvieW ul li a .info .prodName {display: block; font-size: 11px;  padding-top: 12px;}
+#content #recent .sectionCnt .cntArea .recentvieW ul li a .info .price {display: block; padding-top: 8px; font-size: 14px; /*font-family: tahoma; font-weight: bold;*/}
+/*#content .recentList .sectionCnt .cntArea .recentvieW ul li a .info .price:after {content: "원";}*/
+
+#content #trend {}
+#content #trend h3 {width: 230px; height: 52px; background-image: url(../img/hot_trend.png); background-position: 0 0;}
+#content #trend .sectionCnt {margin-bottom: 60px;}
+#content #trend .sectionCnt .trendList {overflow: hidden; border-width: 2px 0 1px; border-color: #ddd;}
+
+
+#content #trend .sectionCnt .trendList+.trendList {margin-top: 20px;}
+#content #trend .sectionCnt .trendList .titArea {float: left; position: relative; padding: 40px 0 0 22px; width: 145px; height: 600px; border-right: 1px solid #ddd;}
+#content #trend .sectionCnt .trendList .titArea h4 {margin-bottom: 9px;}
+#content #trend .sectionCnt .trendList .titArea h4 img {width: 114px;}
+#content #trend .sectionCnt .trendList .titArea>a {color: #888; font-size: 11px;} /*인라인태그는 마진탑 안먹는다.*/
+#content #trend .sectionCnt .trendList .titArea>a:after {content: "바로가기 >";}
+#content #trend .sectionCnt .trendList .titArea .hotKeyword {position: absolute; bottom: 22px; left: 10px; /*white-space: pre-line;*/}
+#content #trend .sectionCnt .trendList .titArea .hotKeyword .tlt {margin-bottom: 10px; font-size: 16px; font-weight: 700;}
+#content #trend .sectionCnt .trendList .titArea .hotKeyword a {/*display: inline-block;*/ float: left; clear: both; padding: 0 10px; color: #999; font-size: 12px; line-height: 28px; border: 1px solid #ddd;}
+/*float: left; clear: both; 인라인 태그이면서 줄바꿈 a에 display: inline-block주고 부모인 .hotKeyword에 white-space: pre-line줘도 된다. */
+#content #trend .sectionCnt .trendList .titArea .hotKeyword a+a {margin-top: 6px;}
+#content #trend .sectionCnt .trendList .titArea .hotKeyword a:before {content: "#"; margin-right: 1px;}
+
+
+#content #trend .sectionCnt .trendList .cntArea {float: left; height: 600px;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd {float: left; position: relative; width: 325px; height: 100%;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd ul {position: relative; height: 100%;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd ul li {position: absolute; top: 0; left: 0; z-index: 1; animation: trendAd 12s infinite;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd ul li a {display: block;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd ul li a img {}
+#content #trend .sectionCnt .trendList .cntArea .trendAd ul li a .adTit {position: absolute; bottom: 50px; left: 22px; right: 22px; padding: 20px 22px; text-align: center; background-color: #999; color: #fff;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd ul li a .adTit strong {display: block; font-size: 16px;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd ul li a .adTit span {display: block; font-size: 12px; margin-top: 8px;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd .adPaging {position: absolute; z-index: 4; bottom: 10px; left: 0; right: 0; text-align: center;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd .adPaging i {display: inline-block; width: 10px; height: 10px; background-color: gray; opacity: 0.25; border-radius: 5px; animation: trendAdPaging 12s infinite;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd .adPaging i+i {margin-left: 10px;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd :nth-child(1) {animation-delay: 0s !important;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd :nth-child(2) {animation-delay: 2s !important;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd :nth-child(3) {animation-delay: 4s !important;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd :nth-child(4) {animation-delay: 6s !important;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd :nth-child(5) {animation-delay: 8s !important;}
+#content #trend .sectionCnt .trendList .cntArea .trendAd :nth-child(6) {animation-delay: 10s !important;}
+
+#content #trend .sectionCnt .trendList .cntArea .trendShop {position: relative; float: left; width: 550px; height: 100%; border-left: 1px solid #ddd;}
+
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList {/*position: relative;*/ position: absolute; top: 0; left: 0; background-color: #fff; width: 100%; height: 100%;}
+
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul {overflow: hidden;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li {float: left; padding: 22px 8px 0 15px; width: 183px;}
+/*미리 width 잡는 버릇하면 반응형때 힘들어 내부컨텐츠에 따라 변동할수 있도록 만들어줘야해*/
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li:nth-child(n+4) {border-top: 1px solid #ddd;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li a {display: block;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li a span {display: block;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li a .thumb {}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li a .thumb img {}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li a .info {/*display: block;*/ padding-top: 6px; height: 110px;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li a .info .tit {/*display: block;*/ color: #111; font-size: 11px; line-height: 14px;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li a:hover .info .tit {color: #0085da; text-decoration: underline;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList ul li a .info .price {/*display: block;*/ margin-top: 8px; font-size: 14px;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList label {display: none; position: absolute; top: 50%; width: 30px; height: 50px; margin-top: -33px; background-image: url(../img/bg_03.png); background-position-y: -13px; text-indent: -9999px;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop:hover .shopList label {display: block;}
+
+
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList label.prev {left: 0; background-position-x: 0;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop .shopList label.next {right: 0; background-position-x: -50px;}
+
+#content #trend .sectionCnt .trendList .cntArea .trendShop nav {position: absolute; z-index: 2; bottom: 10px; left: 50%; margin-left: -45px;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop nav label {float: left; width: 10px; height: 10px; background-color: gray; opacity: 0.25; border-radius: 5px;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop nav label+label {margin-left: 10px;}
+
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(1):checked~.shopList:nth-of-type(1),
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(2):checked~.shopList:nth-of-type(2),
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(3):checked~.shopList:nth-of-type(3),
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(4):checked~.shopList:nth-of-type(4),
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(5):checked~.shopList:nth-of-type(5) {z-index: 1;}
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(1):checked~nav label:nth-child(1),
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(2):checked~nav label:nth-child(2),
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(3):checked~nav label:nth-child(3),
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(4):checked~nav label:nth-child(4),
+#content #trend .sectionCnt .trendList .cntArea .trendShop :nth-child(5):checked~nav label:nth-child(5) {opacity: 1;}
+
+#content #trend #fashionW {border-top-color: #f6699e;}
+#content #trend #fashionW .hotKeyword>a {color: #f6699e;}
+#content #trend #fashionW .hotKeyword>a:hover {color: #fff; background-color: #f6699e; border-color: #f6699e;}
+#content #trend #fashionW .adTit {background-color: #f6699e;}
+#content #trend #fashionM {border-top-color: #1992df;}
+#content #trend #fashionM .hotKeyword>a {color: #1992df;}
+#content #trend #fashionM .hotKeyword>a:hover {color: #fff; background-color: #1992df; border-color: #1992df;}
+#content #trend #fashionM .adTit {background-color: #1992df;}
+#content #trend #beauty {border-top-color: #7e57c2;}
+#content #trend #beauty .hotKeyword>a {color: #7e57c2;}
+#content #trend #beauty .hotKeyword>a:hover {color: #fff; background-color: #7e57c2; border-color: #7e57c2;}
+#content #trend #beauty .adTit {background-color: #7e57c2;}
+#content #trend #baby {border-top-color: #00aad4;}
+#content #trend #baby .hotKeyword>a {color: #00aad4;}
+#content #trend #baby .hotKeyword>a:hover {color: #fff; background-color: #00aad4; border-color: #00aad4;}
+#content #trend #baby .adTit {background-color: #00aad4;}
+
+
+#content #trend .trendBar {position: fixed; z-index: 11; border: 1px solid #ddd; top: 112px; left: 50%; margin-left: -556px; background-color: #fff; transition: top 0.6s;}
+#content #trend .trendBar .barBtnWrap {}
+#content #trend .trendBar .barBtnWrap li {width: 34px;}
+#content #trend .trendBar .barBtnWrap li a {overflow: hidden; display: block; position: relative; text-indent: 44px; width: 34px; line-height: 34px; font-size: 12px; color: #fff;  /*background-color: gray;*/ white-space: nowrap; /*background-image: url(../img/hot_nav.png); background-position-x: -1px;*/}
+#content #trend .trendBar .barBtnWrap li:not(:hover) a {background-color: #fff !important;}
+#content #trend .trendBar .barBtnWrap li a:before {content: ""; position: absolute; top: 0; left: 0; width: 34px; height: 34px; background-image: url(../img/hot_nav.png); background-position-x: -1px; background-position-y: inherit;}
+#content #trend .trendBar .barBtnWrap li:hover a:before {background-position-x: -51px;}
+#content #trend .trendBar .barBtnWrap li:hover a {width: 154px;}
+
+#content #trend .trendBar .barBtnSet {/*position: relative; 위치때문에 설정 하위메뉴*/ border-top: 1px solid #ddd;}
+#content #trend .trendBar .barBtnSet .btnSet { display: block; height: 54px; background-image: url(../img/bg_03.png); background-position: 0 -265px; text-indent: -9999px;} /*label*/
+#content #trend .trendBar .barBtnSet .setDetail {display: none; position: absolute; top: -1px; left: 100%; margin-left: 10px; width: 302px; background-color: #fff; border: 1px solid #ddd;}
+#content #trend .trendBar .barBtnSet :checked~.setDetail {display: block;}
+
+#content #trend .trendBar .barBtnSet .setDetail:before {content: ""; position: absolute; left: -7px; top: 646px; width: 7px; height: 14px; background: url(../img/bg_03.png) -93px -63px no-repeat;}
+#content #trend .trendBar .barBtnSet .setDetail .detailTop {overflow: hidden; border-bottom: 1px solid #ddd;}
+#content #trend .trendBar .barBtnSet .setDetail .detailTop .topDesc {float: left; padding: 17px 0 0 20px; width: 238px; height: 62px;}
+#content #trend .trendBar .barBtnSet .setDetail .detailTop .topDesc strong {display: block; color: #333; font-size: 12px;}
+#content #trend .trendBar .barBtnSet .setDetail .detailTop .topDesc span {display: block; margin-top: 4px; color: #888; font-size: 11px;}
+#content #trend .trendBar .barBtnSet .setDetail .detailTop [type=reset] {float: right; width: 62px; line-height: 62px; /*text-align: center;*/ color: #555; font-size: 12px; background-color: #fafafa;}
+#content #trend .trendBar .barBtnSet .setDetail .detailList {}
+#content #trend .trendBar .barBtnSet .setDetail .detailList label {overflow: hidden; display: block; margin: 0 20px; font-size: 12px; line-height: 38px; border-bottom: 1px solid #ddd; background-image: url(../img/bg_03.png); background-position: 226px -65px;}
+#content #trend .trendBar .barBtnSet .setDetail .detailList label input {display: block; float: left; width: 13px; height: 13px; margin-top: 13px;}
+#content #trend .trendBar .barBtnSet .setDetail .detailList label span {float: left; position: relative; padding-left: 42px; opacity: 0.5;}
+#content #trend .trendBar .barBtnSet .setDetail .detailList label :checked+span {opacity: 1;}
+#content #trend .trendBar .barBtnSet .setDetail .detailList label span:before {content: ""; position: absolute; top: 0px; left: 0px; width: 42px; height: 38px; background-image: url(../img/hot_nav.png); background-position-x: 10px; background-position-y: inherit;}
+#content #trend .trendBar .barBtnSet .setDetail .detailBtnArea {overflow: hidden; border-top: 1px solid #eee; margin-top: -1px;}
+#content #trend .trendBar .barBtnSet .setDetail .detailBtnArea label {position: relative; float: left; width: 50%; line-height: 50px; background-color: #fafafa; font-size: 12px; text-align: center;}
+#content #trend .trendBar .barBtnSet .setDetail .detailBtnArea label[for=btnSet] {color: #555;}
+#content #trend .trendBar .barBtnSet .setDetail .detailBtnArea label[for=barSubmit] {color: #0085da;}
+#content #trend .trendBar .barBtnSet .setDetail .detailBtnArea label[for=barSubmit]:before {content: ""; position: absolute; top: 15px; left: 0; width: 1px; height: 20px; background-color: #ddd;}
+
+:checked~#container #trend .trendBar {top: 42px;}
+
+/*Keyframes*/
+@keyframes trendAd {
+	0% {z-index: 3;}
+	16.6665% {z-index: 3;}
+	16.6666% {z-index: 1;}
+	100% {z-index: 1;}
+}
+
+@keyframes trendAdPaging {
+	0% {opacity: 1;} 
+	16.6665% {opacity: 1;}
+	16.6666% {opacity: 0.25;} 
+	100% {opacity: 0.25;}
+}
+
+
+  /*0% {;} 사이에 1번보여야해
+	16.6666% {} 사이에 2번보여야해
+	33.3333% {} 사이에 3번보여야해
+	49.9999% {} 사이에 4번보여야해
+	66.6666% {} 사이에 5번보여야해
+	83.3333% {} 사이에 6번보여야해
+	100% {}*/
+
+footer {border-top: 2px solid #ddd; color: #555; font-size: 12px;}
+footer nav {text-align: center;}
+footer nav a {padding: 0 35px; line-height: 50px;}
+footer nav a+a {border-left: 1px solid #888;}
+footer .ftCnt {border-top: 1px solid #ddd;}
+footer .ftCnt .cntArea {overflow: hidden; padding: 30px 0;}
+footer .ftCnt .cntArea h2 {float: left; width: 150px;}
+footer .ftCnt .cntArea h2 a {display: block; margin-left: 10px; width: 117px; height: 34px; background-image: url(../img/bg_ft.png); background-position: -20px -36px; text-indent: -9999px;}
+footer .ftCnt .cntArea .companyInfo {float: left; line-height: 1.5;}
+footer .ftCnt .cntArea .companyInfo em {display: block; font-size: 11px;}
+footer .ftCnt .cntArea .companyInfo .licence {text-decoration: underline; font-size: 11px;}
+footer .ftCnt .cntArea .companyInfo .licence:after {content: " >";}
+footer .ftCnt .cntArea .companyInfo span,
+footer .ftCnt .cntArea .companyInfo strong {display: block;}
+footer .ftCnt .cntArea .companyInfo address{float: left; width: 260px;}
+footer .ftCnt .cntArea .companyInfo .customer {float: left; width: 340px;}
+footer .ftCnt .cntArea .companyInfo .customer strong {font-size: 24px; font-family: Tahoma;}
+footer .ftCnt .cntArea .companyInfo .policyGuide {float: left; width: 270px;}
+footer .ftCnt .awards {overflow: hidden; padding: 15px 40px 15px; border-top: 1px solid #ddd;}
+footer .ftCnt .awards li {float: left; background-image: url(../img/bg_ft.png); background-position-y: -107px;}
+footer .ftCnt .awards li+li {margin-left: 32px;}
+footer .ftCnt .awards li a {display: block; width: 188px; height: 50px; text-indent: -9999px;}
+footer .copy {position: relative; background-color: #333; padding-top: 21px; height: 80px;}
+footer .copy p {color: #888; font-size: 11px; width: 640px;}
+footer .copy .sns {position: absolute; top: 0; right: 0;}
+footer .copy .sns a {float: left; margin-right: 8px; width: 34px; height: 34px; background-image: url(../img/bg_ft.png); background-position-y: -30px; text-indent: -9999px;}

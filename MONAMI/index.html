@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=divice-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MONAMI MAIN</title>
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="./lib/owl/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="./lib/owl/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="./css/common.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<!-- JS -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>	
+	<script type="text/javascript" src="./lib/owl/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+
+</head>
+<body>
+	<div id="wrap">
+		<header>
+			<input type="checkbox" id="menu_btn">
+			<div id="logoWrap">
+				<h1 id="logo">
+					<a href="javascript:;" title="홈으로 이동"></a>
+				</h1>
+			</div>
+			<div id="menu">
+				<div id="menu_cate_wrap">
+					<div class="m_gnb">
+						<div class="m_serch">
+							<div class="m_serch_detail">
+								<ul>
+									<li class="select m_click"><a href="#">
+										<span class="thumb"></span>
+										<span class="tit">KOR</span>
+									</a></li>
+									<li class="select "><a href="#">
+										<span class="thumb"></span>
+										<span class="tit">ENG</span>
+									</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="cate cateTop" id="m_intro">
+						<div class="tit cateclick"><a href="javascript:;">모나미소개</a></div>
+						<ul class="cateMove">
+							<li><a href="./sub/info.html?tab=1">회사정보</a></li>
+							<li><a href="./sub/info.html?tab=2">회사연혁</a></li>
+							<li><a href="./sub/info.html?tab=3">찾아오시는 길</a></li>
+						</ul>
+					</div>
+					<div class="cate" id="m_prod">
+						<div class="tit"><a href="javascript:;">모나미제품</a></div>
+						<ul class="cateMove">
+							<li><a href="./sub/prod.html?tab=1">펜</a></li>
+							<li><a href="./sub/prod.html?tab=2">마카</a></li>
+							<li><a href="./sub/prod.html?tab=3">형광펜</a></li>
+							<li><a href="./sub/prod.html?tab=4">회화구류</a></li>
+							<li><a href="./sub/prod.html?tab=5">기타</a></li>
+							<li><a href="./sub/prod.html?tab=6">카탈로그</a></li>
+						</ul>
+					</div>
+					<div class="cate" id="m_museum">
+						<div class="tit"><a href="javascript:;">문구박물관</a></div>
+						<ul class="cateMove">
+							<li><a href="./sub/museum.html">문구박물관</a></li>
+						</ul>
+					</div>
+					<div class="cate" id="m_user">
+						<div class="tit"><a href="javascript:;">고객지원</a></div>
+						<ul class="cateMove">
+							<li><a href="javascript:;">자주묻는질문</a></li>
+							<li><a href="javascript:;">문의하기</a></li>
+							<li><a href="javascript:;">이벤트</a></li>
+							<li><a href="javascript:;">모나미 패밀리샵</a></li>
+						</ul>
+					</div>
+					<div class="cate" id="m_news">
+						<div class="tit"><a href="javascript:;">NEWS & VIDEO</a></div>
+						<ul class="cateMove">
+							<li><a href="javascript:;">보도자료</a></li>
+							<li><a href="javascript:;">동영상자료</a></li>
+						</ul>
+					</div>
+					<div class="m_sns">
+	       				<ul>
+	       					<li><a href="#">facebook</a></li>
+	       					<li><a href="#">instagram</a></li>
+	       					<li><a href="#">youtube</a></li>
+	       				</ul>
+	       			</div>
+				</div> <!-- /.menu_cate__wrap -->
+				<div id="menu_btn_wrap">
+		       		<input type="button" class="menuBtn" id="menuBtn">
+	       		    <label for="menu_btn" class="btn_line">
+           		        <span class="menu_line line_close"></span>
+           		        <span class="menu_line"></span>
+           		        <span class="menu_line line_close"></span>
+	       		    </label>
+	       		    <div class="menu_text">
+	       		    	<span class="open">MENU</span>
+	       		        <span class="close">CLOSE</span>
+	       			</div>
+				 </div> <!-- /.menu_btn_wrap -->
+				 
+			</div>
+			<div class="inner">
+				<div id="hdwrap">
+					<div class="gnb">
+						<div class="serch">
+							<div class="sns">
+							<a href="javascript:;">페이스북</a>
+							<a href="javascript:;">인스타그램</a>
+							<a href="javascript:;">유투브</a>
+						</div>
+						<input type="radio" name="grpSerch" id="KOR">
+						<input type="radio" name="grpSerch" id="ENG">
+						<input type="checkbox" id="serch_btn">
+						<label for="serch_btn"><span style="background-image: url(./img/lang.png);"></span></label>
+						<div class="serch_detail">
+							<ul>
+								<li><label for="KOR"><span style="background-image: url(./img/lang.png);"></span>KOR</label></li>
+								<li><label for="ENG"><span style="background-image: url(./img/lang.png);"></span>ENG</label></li>
+							</ul>
+						</div>
+					</div>
+					<nav class="hdgnb">
+						<ul class="clearfix">
+							<li>
+								<a href="./sub/info.html">모나미소개</a>
+								<div class="detail">
+									<a href="./sub/info.html?tab=1">회사정보</a>
+									<a href="./sub/info.html?tab=2">회사연혁</a>
+									<a href="./sub/info.html?tab=3">찾아오시는 길</a>
+								</div>
+							</li>
+							<li>
+								<a href="./sub/prod.html">모나미제품</a>
+								<div class="detail">
+									<a href="./sub/prod.html?tab=1">펜</a>
+									<a href="./sub/prod.html?tab=2">마카</a>
+									<a href="./sub/prod.html?tab=3">형광펜</a>
+									<a href="./sub/prod.html?tab=4">회화구류</a>
+									<a href="./sub/prod.html?tab=5">기타</a>
+									<a href="./sub/prod.html?tab=6">카탈로그</a>
+								</div>
+							</li>
+							<li>
+								<a href="./sub/museum.html">문구박물관</a>
+								<div class="detail">
+									<a href="./sub/museum.html">문구박물관</a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;">고객지원</a>
+								<div class="detail">
+									<a href="javascript:;">자주묻는질문</a>
+									<a href="javascript:;">문의하기</a>
+									<a href="javascript:;">이벤트</a>
+									<a href="javascript:;">모나미 패밀리샵</a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;">NEWS & VIDEO</a>
+								<div class="detail">
+									<a href="javascript:;">보도자료</a>
+									<a href="javascript:;">동영상자료</a>
+								</div>
+							</li>
+						</ul>
+					</nav>	
+				</div> <!-- /#hdwrap -->
+			</div> <!-- /.inner -->
+		</header>
+
+		<div id="container">
+			<div class="popup">
+				<a href="javascript:;" class="puBt"><span class="puText">예약하기</span></a>
+				<a href="javascript:;" class="puClose">예약하기 닫기 버튼</a>
+			</div>
+			<section id="visual">
+				<div class="visualSlide owl-carousel owl-theme">
+				 	<div class="item visual_01">
+				 		<div class="inner">
+							<div class="visual_text">
+								<span class="bold">모나미</span>
+								<span class="thin">는 언제나 당신의</span>
+								<br>
+								<span class="bold">행복</span>
+								<span class="thin">한</span>
+								<span class="bold">&nbsp;기록</span>
+								<span class="thin">과</span>
+								<span class="bold">&nbsp;함께</span>
+								<span class="thin">합니다.</span>
+							</div> <!-- /.visual_text -->
+							<!-- <div class="visual_line"></div>
+							<div class="visual_name">153 NEO</div> -->
+						</div> <!-- /.inner -->
+					</div>
+					<div class="item visual_02">
+						<div class="inner">
+							<div class="visual_text">
+								<span>어쩌면 삶은</span>
+								<br>
+								<span>인생이라는 종이 위에</span>
+								<br>
+								<span>써 내려가는</span>
+								<br>
+								<span>펜의 기록 같습니다.</span>
+							</div> <!-- /.visual_text -->
+						</div> <!-- /.inner -->
+					</div>
+				</div>
+			</section>
+			<section id="newArrival">
+				<div class="inner">	
+					<div class="tit">
+						<div class="circle"></div>
+						<div class="thumb"></div>
+						<h2>NEW ARRIVALS</h2>
+						<span>가장 먼저 만나는 모나미</span>
+					</div>
+					<div class="newslide owl-carousel">
+						<div class="item">
+							<a href="javascript:;" style="background-image: url(./img/new_prod_01.png);">
+								<span class="hoverBx">
+									<span class="textTit">INK DIY</span>
+									<span class="textInfo">세상에 없는 나만의 잉크컬러를 만들 수 있는 DIY 키트</span>
+									<span class="color">
+										<span class="colorP">
+											<i class="color_01 active"></i>
+											<i class="color_02"></i>
+											<i class="color_03"></i>
+											<i class="color_04"></i>
+											<i class="color_05"></i>
+										</span>
+									</span>
+									<span class="naMore"><em>MORE</em></span>
+								</span>
+							</a>	
+						</div>
+						<div class="item">
+							<a href="javascript:;" style="background-image: url(./img/new_prod_02.png);">
+								<span class="hoverBx">
+									<span class="textTit">세라믹마카</span>
+									<span class="textInfo">머그컵, 접시, 그릇 등 도자기 꾸미기용 마카</span>
+									<span class="color">
+										<span class="colorP">
+											<i class="color_06 active"></i>
+											<i class="color_07"></i>
+											<i class="color_08"></i>
+											<i class="color_09"></i>
+											<i class="color_10"></i>
+										</span>
+									</span>
+									<span class="naMore"><em>MORE</em></span>
+								</span>
+							</a>	
+						</div>
+						<div class="item">
+							<a href="javascript:;" style="background-image: url(./img/new_prod_03.png);">
+								<span class="hoverBx">
+									<span class="textTit">153 네오 만년필</span>
+									<span class="textInfo">만년필로 재탄생한 153 NEO (F촉)</span>
+									<span class="color">
+										<span class="colorP">
+											<i class="color_11 active"></i>
+											<i class="color_12"></i>
+											<i class="color_13"></i>
+											<i class="color_14"></i>
+											<i class="color_15"></i>
+										</span>
+									</span>
+									<span class="naMore"><em>MORE</em></span>
+								</span>
+							</a>	
+						</div>
+						<div class="item">
+							<a href="javascript:;" style="background-image: url(./img/new_prod_04.png);">
+								<span class="hoverBx">
+									<span class="textTit">153 블라썸</span>
+									<span class="textInfo">무광 메탈 소재의 153 시그니쳐 고급 펜</span>
+									<span class="color">
+										<span class="colorP">
+											<i class="color_16 active"></i>
+											<i class="color_17"></i>
+										</span>
+									</span>
+									<span class="naMore"><em>MORE</em></span>
+								</span>
+							</a>	
+						</div>
+						<div class="item">
+							<a href="javascript:;" style="background-image: url(./img/new_prod_05.png)" "background-size: cover;">
+								<span class="hoverBx">
+									<span class="textTit">153 네오 홀더샤프</span>
+									<span class="textInfo">필의 필기감과 샤프의 간편한 기능을 모두 담았다!</span>
+									<span class="color">
+										<span class="colorP">
+											<i class="color_18 active"></i>
+											<i class="color_19"></i>
+											<i class="color_20"></i>
+										</span>
+									</span>
+									<span class="naMore"><em>MORE</em></span>
+								</span>
+							</a>	
+						</div>
+					</div>
+					<div class="dragWrap">
+						<div class="drag">
+							<span class="arr1"><img src="./img/p_arr_01.png" alt=""></span>
+							<span class="arr2"><img src="./img/p_arr_02.png" alt=""></span>
+							<div class="ds">
+								<div><img src="./img/click.png" alt=""></div>
+								DRAG & SCROLL
+							</div>
+						</div>
+					</div>
+				</div> <!-- /.inner -->
+			</section>
+			<section id="bestProduct">
+				<div class="inner">	
+					<div class="tit">
+						<div class="circle"></div>
+						<div class="thumb"></div>
+						<h2>BEST PRODUCT</h2>
+						<span>언제 어디서나 생활 속에 함께하는 모나미</span>
+					</div>
+					<nav class="bpTab">
+						<a href="javascript:;" class="bpclick">펜</a>
+						<a href="javascript:;">마카</a>
+						<a href="javascript:;">형광펜</a>
+						<div class="bpline bpclick"></div>
+						<div class="bpline"></div>
+						<div class="bpline"></div>
+					</nav>
+					<div class="bpBx">
+						<ul class="bpProd">
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_01.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">153 네오 만년필</span>
+									<span></span>
+									<span>프리미엄펜</span>
+								</div>
+							</a></li>
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_02.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">153 블라썸</span>
+									<span></span>
+									<span>프리미엄펜</span>
+								</div>
+							</a></li>
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_03.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">153 블랙 & 화이트</span>
+									<span></span>
+									<span>프리미엄펜</span>
+								</div>
+							</a></li>
+						</ul>
+					</div>
+					<div class="bpBx">
+						<ul class="bpProd">
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_04.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">프러스펜 S</span>
+									<span></span>
+									<span>수성마카</span>
+								</div>
+							</a></li>
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_05.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">세라믹마카 480 / 482</span>
+									<span></span>
+									<span>생활마카</span>
+								</div>
+							</a></li>
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_06.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">프러스펜 3000</span>
+									<span></span>
+									<span>수성마카</span>
+								</div>
+							</a></li>
+						</ul>	
+					</div>
+					<div class="bpBx">
+						<ul class="bpProd">
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_07.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">에센티 브라이트 / 소프트</span>
+									<span></span>
+									<span>형광펜</span>
+								</div>
+							</a></li>
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_08.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">에센티스틱 브라이트 / 소프트</span>
+									<span></span>
+									<span>형광펜</span>
+								</div>
+							</a></li>
+							<li><a href="javascript:;">
+								<div class="thumb">
+									<img src="./img/bp_prod_09.png">
+								</div>
+								<div class="info">
+									<span class="ellipsis">에딩.슈퍼 형광펜 600</span>
+									<span></span>
+									<span>형광펜</span>
+								</div>
+							</a></li>
+						</ul>
+					</div>
+					<div class="more"><a href="javascript:;">더보기</a></div>
+				</div> <!-- /.inner -->
+			</section>
+			<section id="banner">
+				<div class="inner">
+					<a href="javascript:;">
+						<div class="text">
+							<div class="bannerLogo"></div>
+							<span class="text_01">세상에 하나뿐인 나만의</span>
+							<span class="text_02"></span>
+							<span class="text_03"></span>
+							<span class="text_04">만들기</span>
+							<span class="circle"></span>
+						</div>
+					</a>
+				</div>
+			</section>
+			<section id="conceptStore">
+				<div class="inner">	
+					<div class="tit">
+						<div class="circle"></div>
+						<div class="thumb"></div>
+						<h2>MONAMI Concept Store</h2>
+						<span>어디까지 써봤니? 나만의 모나미컨셉스토어</span>
+					</div>
+					<div class="video">
+						<iframe width="976" height="549" src="https://www.youtube.com/embed/Xgz6YDETSa8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<!-- src맨뒤에 ?amp;autoplay=1 넣으면 자동재생-->
+					</div>
+				</div> <!-- /.inner -->
+			</section>
+			<section id="Service">
+				<div class="inner">	
+					<div class="tit">
+						<div class="circle"></div>
+						<div class="thumb"></div>
+						<h2>CUSTOMER SERVICE</h2>
+						<span class="ellipsis">모나미는 언제나 소중한 의견에 귀 기울이겠습니다.</span>
+					</div>
+					<ul>
+						<li>
+							<span class="thumb"></span>
+							<span>MONAMI</span>
+							<span>MEDIA</span>
+							<span class="move"></span>
+							<span class="ellipsis">새로운 소식을 빠르게 만나보실 수 있습니다.</span>
+							<a href="javascript:;"><span>MEDIA&nbsp;</span>NOW</a>
+						</li>
+						<li>
+							<span class="thumb"></span>
+							<span>MONAMI</span>
+							<span>INQUIRY</span>
+							<span class="move"></span>
+							<span class="ellipsis">궁금한 사항은 문의하세요.</span>
+							<a href="javascript:;"><span>INQUIRY&nbsp;</span>NOW</a>
+						</li>
+						<li>
+							<span class="thumb"></span>
+							<span>MONAMI</span>
+							<span>FAMILY SHOP</span>
+							<span class="move"></span>
+							<span class="ellipsis">주변 패밀리샵을 찾아보세요.</span>
+							<a href="javascript:;"><span>FIND&nbsp;</span>SHOP</a>
+						</li>
+					</ul>
+				</div> <!-- /.inner -->
+			</section>			
+		</div> <!-- /.container -->
+
+		<footer>
+			<div class="inner">
+				<div class="foot_top">
+					<h1><a href="javascript:;"><img src="./img/footer_logo.jpg" alt="모나미 로고"></a></h1>
+					<ul>
+						<li><a href="javascript:;">회사소개</a></li>
+						<li><a class="#">개인정보처리방침</a></li>
+						<li><a class="#">이메일무단수집거부</a></li>
+					</ul>
+				</div> <!-- /.foot_top -->
+				<div class="foot_btm clearfix">
+					<div class="info">
+						<div class="tit">INFO</div>
+						<address>
+							<span class="address">ADDRESS :&nbsp;</span>경기도 용인시 수지구 손곡로 17 <span class="bar">l</span>
+							TEL : 031-216-0153 <span class="bar">l</span>
+							FAX : 031-270-5154
+						</address>
+						<p class="copy">COPYRIGHT(C) 2017 MONAMI.CO.,LTD. ALL RIGHTS RESERVED.</p>
+					</div> <!-- /.info -->
+					<div class="cc">
+						<div class="tit">CUSTOMER CENTER</div>
+						<div class="cc_tel">080-022-0153</div>
+					</div> <!-- /.cc -->
+					<div class="fam_site">
+						<input type="checkbox" id="fam_btn">
+						<label for="fam_btn">FAMILY SITE</label>
+						<ul>
+							<li><a href="http://www.monamimall.com" target="_blank">모나미몰</a></li>
+							<li><a href="http://www.mon-arte.com" target="_blank">모나르떼</a></li>
+							<li><a href="http://www.monamipet.com" target="_blank">모나미펫</a></li>
+							<li><a href="http://monamiconcept.com" target="_blank">모나미 컨셉스토어</a></li>
+							<li><a href="http://www.hangso.co.kr" target="_blank">주식회사 항소</a></li>
+							<li><a href="http://www.monamistation.com/main.do" target="_blank">모나미 스테이션</a></li>
+							<li><a href="http://www.monami.co.kr/art_contest/contest/introduction.asp" target="_blank">환경사랑 미술대회</a></li>
+						</ul>
+					</div> <!-- /.fam_site -->
+				</div> <!-- /.foot_btm -->
+			</div> <!-- /.inner -->
+		</footer>
+	</div> <!-- /#Wrap -->
+</body>
+
+</html>

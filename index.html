@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=divice-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Fixed Silver PORTFOLIO</title>
+	<!-- JS -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
+
+
+	<style type="text/css">
+		/*RESET*/
+		*,:before,:after {margin: 0; padding: 0; color: inherit; text-decoration: inherit; font-style: inherit; border: 0px solid transparent; outline: 0 solid transparent; background: transparent none 50% 50% no-repeat; box-sizing: border-box;}
+		*::selection {background-color: #f4b82a;}
+		ul, ol, li {list-style: none;}
+		table {table-layout: fixed;}
+		h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: inherit;}
+		label, button, [type=button], [type=submit], [type=reset], a {cursor: pointer;}
+		img {display: block;} 
+
+		/*CLASS*/
+		.clearfix:after {content: ""; display: block; clear: both;}
+		.ellipsis {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+		.hidden {display: none; width: 0; height: 0; visibility: hidden; opacity: 0;}
+		.bold {font-weight: 700;}
+
+		/*GLOBAL*/
+		[type=checkbox], [type=radio] {display: none;}
+		.inner {display: block; position: relative; margin: auto; max-width: 1200px; height: 100%;}
+		.inner:after {content: ""; display: block; clear: both;}
+
+		#wrap {font-family: 'Noto Sans KR', sans-serif;}
+
+		section {overflow: hidden; position: relative;}
+		section:not(:first-child) .sectionInner {height: 100%; border-width: 15px;}
+		section:nth-child(2) .sectionInner {border-color: #3d899e; padding-bottom: 50px;}
+		section:nth-child(3) .sectionInner {border-color: #efb8bd; padding-bottom: 50px;}
+		section:nth-child(4) .sectionInner {border-color: #aa85a7; padding-bottom: 50px;}
+		section:nth-child(5) .sectionInner {border-color: #f4b82a;}
+
+
+		section .hdtit {position: absolute; z-index: 11; top: -420px; left: 0; width: 100%; margin: auto; text-align: center; transition: top 0.5s 0.3s;}
+		section.active .hdtit {top: 0;}
+		section .hdtit>div {display: inline-block;}
+		section .hdtit .titLine {margin-top: 48px; width: 100px; height: 5px; transform: rotate(90deg);}
+		section:not(:nth-child(2)) .hdtit .titLine {margin-top: 22px; width: 50px;}
+		section:nth-child(5) .hdtit .titLine {margin-top: 48px; width: 100px;}
+		section .hdtit .titText {margin-top: 35px; font-size: 3.6em; font-weight: 900;}
+		section:not(:nth-child(2)) .hdtit .titText {margin-top: 15px;}
+		section:nth-child(5) .hdtit .titText {margin-top: 35px;}
+		section .hdtit .subText {margin-top: -10px; font-size: 2.2em; font-weight: 700;}
+		section .hdtit .subLine {width: 30px; height: 5px; transform: rotate(90deg); background-color: #3d899e;}
+		section .hdtit img.me  {display: inline-block; margin-top: 5px; width: 170px; border: 5px solid #3d899e; border-radius: 50%; background-color: #3d899e;}
+
+		section:nth-child(2) .hdtit .titLine {background-color: #3d899e;}
+		section:nth-child(3) .hdtit .titLine {background-color: #efb8bd;}
+		section:nth-child(4) .hdtit .titLine {background-color: #aa85a7;/* background-color: #f4b82a;*/}
+		section:nth-child(5) .hdtit .titLine {/*background-color: #f4b82a;*/ background-color: #f4b82a;}
+		section:nth-child(2) .hdtit .titText {color: #3d899e;}
+		section:nth-child(3) .hdtit .titText {color: #efb8bd;}
+		section:nth-child(4) .hdtit .titText {color: #aa85a7}
+		section:nth-child(5) .hdtit .titText {/*color: #f4b82a;*/ color: #f4b82a;}
+
+		nav {top: 50%; right: 8%; transform: translate(0, -50%);}
+		nav i {position: relative; display: block; font-size: 1.5em; font-family: Lucida Console; color: #ddd; text-align: center;}
+		nav i .navBtn { line-height: 40px;}
+		nav i .navText {overflow: hidden; position: absolute; bottom: 10px; right: 100%; width: 0; font-size: 16px; text-align: right; transition: 0.4s}
+		nav i .navText em {display: block; padding-right: 35px; width: 120px; font-family: Anton;}
+		nav i .navText:after {content: ''; position: absolute; right: 0; bottom: 0; width: 30px; height: 1px; background-color: #ddd;}
+		nav i+i {margin-top: 18px;}
+
+		nav i:hover .navText {width: 120px;}
+		nav i:hover .navText:after {background-color: #ddd;}
+
+		nav i.active {font-size: 4em; color: #f4b82a;}
+		nav i.active .navText {display: block; width: 120px;}
+
+
+		#main {position: relative; background-image: url(./img/visual.jpg); background-size: cover; background-color: #3d899e;}
+		#main .bg {width: 100%;}
+		#main .text {}
+		#main .text .go {position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Oleo Script; color: #fff; font-size: 9em; }
+		#main .text .wp {position: absolute; z-index: 3; top: 56%; left: 50%; font-family: Anton; /*font-weight: bold;*/ font-style: italic; font-size: 1.6em; color: #272626;}
+		#main .m_line {position: absolute; top: 0; left: 0; bottom: 0; right: 0;}
+		#main .m_line i {position: absolute;  display: block; background-color: #fff;}
+		#main .m_line i:nth-child(1) {top: 8%; right: 5%; width: 90%; height: 3px; animation: w_line 1.4s linear alternate;}
+		#main .m_line i:nth-child(2) {bottom: 8%; left: 5%; width: 90%; height: 3px; animation: w_line 1.4s linear alternate;}
+		#main .m_line i:nth-child(3) {top: 5%; left: 6.8%; width: 3px; height: 90%; animation: h_line 1.4s linear alternate;}
+		#main .m_line i:nth-child(4) {bottom: 5%; right: 6.8%; width:3px; height: 90%; animation: h_line 1.4s linear alternate;}
+		#main .wrapper {position: absolute; margin-left: -15px; top: -70px; left: 50%; height: 100%; text-align: center;}
+		#main p {position: absolute; bottom: 100px; left: 50%; transform: translate(-50%, 0); color: #fff; font-size: 0.7em;}
+
+		/* -------------------------------------------------------------------------
+		   begin Scroll Down Button
+		 * ------------------------------------------------------------------------- */
+		#main button.scroll_down {position: absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; height: 50px; width: 30px; bottom: 60px; background-color: transparent; border: 2px solid white; border-radius: 20px; cursor: pointer; outline: none;}
+		#main button.scroll_down:before {position: absolute; top: 10px; left: 50%; content: ""; width: 6px; height: 6px; margin-left: -3px; background-color: #fff; border-radius: 100%; animation: scroll_down_btn-animation 2s infinite; animation: scroll_down_btn-animation 2s infinite; box-sizing: border-box;}
+
+
+		#about .sectionInner {overflow: hidden; padding-top: 60vh;}
+		#about .cloud {position: absolute; top: 0; bottom: 0; right: 0; left: 0; opacity: 0.5;}
+		#about .cloud img {position: absolute; width: 15%;}
+		#about .cloud img:nth-child(1) {top: 0; right: 10%; animation: cloud_one 10s linear infinite alternate;}
+		#about .cloud img:nth-child(2) {bottom: 20%; right: -60px; animation: cloud_two 6s linear infinite alternate;}
+		#about .cloud img:nth-child(3) {top: 20%; left: -80px; animation: cloud_three 8s linear infinite alternate;}
+		#about .cloud img:nth-child(4) {bottom: 0; left: 10%; animation: cloud_four 15s linear infinite alternate;}
+
+		#about .profile {position: relative; float: left; width: 50%; font-size: 1.1em;}
+		#about .profile .subtit {margin-left: 20%;}
+		#about .history {position: relative; float: right; width: 50%; font-size: 1.1em;}
+		#about .history .subtit {margin-left: 12%; letter-spacing: -1px;}
+		#about div .abouttit {position: absolute; top: -100px; left: 50%; font-size: 2em; transform: translate(-50%, 0); letter-spacing: 6px; font-weight: 500;}
+		#about span {display: block; line-height: 40px;}
+		#about span.h_wide {line-height: 40px; height: 120px;}
+		#about .subtit {float: left; font-weight: 700;}
+		#about .info {float: left; padding-left: 7%; font-weight: 300;}
+
+		#skill .sectionInner {padding-top: 23vh;}
+		#skill canvas {position: absolute; top: 0; left: 0;}
+		/* #skill~ */
+			#barWrap {overflow: hidden; width: 100%; height: 100%; text-align: center;}
+			#barWrap li {position: relative; float: left; width: 25%;}
+			#barWrap li:nth-child(3n+1) {margin-left: 12.5%;}
+			#barWrap li:nth-child(n+4) {margin-top: 5%;}
+			#barWrap li:nth-child(3n) {margin-right: 12.5%;}
+			#barWrap li .barTitle {position: absolute; top: 0; left: 50%; width: 100%; padding-bottom: 15px; font-size: 1.5em;  font-weight: 500; transform: translate(-50%, 0);}
+			#barWrap li:nth-child(1) {color: #f2b134;}
+			#barWrap li:nth-child(2) {color: #ed5339;}
+			#barWrap li:nth-child(3) {color: #404040;}
+			#barWrap li:nth-child(4) {color: #112f41;}
+			#barWrap li:nth-child(5) {color: #068587;}
+			#barWrap li:nth-child(6) {color: #4fb99f;}
+			#barWrap li .graphFrm {position: relative; display: inline-block; padding-top: 50px; width: 170px;}
+			#barWrap li .graphFrm .barGraph {position: relative; height: 0; padding-top: 100%;}
+			#barWrap li .barText {position: absolute; top: 50%; left: 0; right: 0; transform: translate(0, -50%);}
+			#barWrap li span {margin-top: 5px; height: 40px; display: block; font-size: 0.8em;}
+
+			#lineBar {display: none; margin: auto; margin-top: 10px; margin-left: 15px; width: 100%; }
+			#lineBar li {position: relative; z-index: 0;s margin-top: 30px; margin-bottom: 50px; height: 60px;}
+			#lineBar li:nth-child(1) {color: #f2b134;}
+			#lineBar li:nth-child(2) {color: #ed5339;}
+			#lineBar li:nth-child(3) {color: #404040;}
+			#lineBar li:nth-child(4) {color: #112f41;}
+			#lineBar li:nth-child(5) {color: #068587;}
+			#lineBar li:nth-child(6) {color: #4fb99f;}
+			#lineBar li .title {float: left; width: 20%; text-align: center; font-weight: 900;}
+			#lineBar li .bar {float: left; width: 60%; height: 100%; background-color: lightgray;}
+			#lineBar li .text {float: left; padding-left: 20px; width: 20%; line-height: 30px; font-weight: 900;}
+			#lineBar li .text:after {content: '%';}
+			#lineBar li p {position: absolute; right: 0; bottom: -50px; width: 50%; margin-right: 30%; font-size: 0.8em; height: 50px; color: #000;}
+
+		#work .sectionInner {padding-top: 28vh;}
+		/* #work ~ */
+			#drag {/*overflow: hidden;*/ position: relative; margin: 50px auto 0; width: 100%; height: 450px;}
+			#drag .guide {position: absolute; bottom: -10px; left: 135px; text-align: center; font-size: 0.7em; color: #444;}
+			#drag>img {float: left; position: relative; margin-left: -4.8%; margin-right: 2%; z-index: 10; width: 50%;}
+
+			#drag .frmWrap {position: absolute; z-index: 11; margin-left: 2%; margin-top: 2.5%; top: -2px; left: 0; right: 0; padding-top: 23%; width: 41.3%; height: 0; background-color: #fff; transition: 0.3s; background-size: cover; background-position: 50% 0; overflow-y: scroll;}
+			#drag .frmWrap .frm {position: absolute; top: 0; left: 0; right: 0; bottom: 0;}
+			#drag .frmWrap img {display: block; width: 100%; background-position: 50% 0;}
+			#drag .frmWrap img::selection {background-color: transparent;}
+			/*#drag .frm.droped:before {content: ""; display: block; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);}*/
+			#drag .bxfrm {position: relative; float: left; width: 50%; height: 100%;}
+			/*#drag .bxfrm.droped .bx.picked {display: block;}*/
+			#drag .bxfrm .bxDescription {text-align: center; margin-top: -83px;}
+			#drag .bxfrm .bxDescription>div::selection {background-color: transparent;}
+			#drag .bxfrm .bxDescription>a::selection {background-color: transparent;}
+			#drag .bxfrm .bxDescription .tit {font-size: 3em; line-height: 50px; font-weight: 900; padding-bottom: 2vh;}
+			#drag .bxfrm .bxDescription .tools {padding-bottom: 3vh; font-size: 0.9em;}
+			#drag .bxfrm .bxDescription .desc {font-weight: 300; padding-bottom: 3vh;}
+			#drag .bxfrm .bxDescription .notice {font-size: 0.8em; font-weight: 100; padding-bottom: 4vh; color: #ccc;}
+			#drag .bxfrm .bxDescription .button {position: relative; margin: auto; display: block; width: 120px; height: 40px; background-color: #f4b82a; border-radius: 30px; line-height: 40px; color: #fff;}
+			#drag .bxfrm .bxDescription .button:after {content: 'VIEW SITE'; position: absolute; top: 0; left: 50%; line-height: 40px; transform: translate(-50%, 0); white-space: nowrap; font-weight: 700; /*color: #fff; text-shadow: 2px 2px 2px rgba(0,0,0,0.3)*/}
+			#drag .bxfrm .bxDescription .button:hover {background-color: #3d899e;}
+			#drag .bxfrm .bxDescription .button:hover:after {color: #fff;}
+
+			#drag .bxfrm .bx {position: absolute; z-index: 11; bottom: 0; left: 0; right: 0; width: 30.666666666666%; padding-top: 30%; height: 0; cursor: pointer; background-size: cover; transition: border-radius 0.3s; border: 1px solid #ddd;}
+			#drag .bxfrm .bx.picked {border-radius: 50%;}
+			#drag .bxfrm .bx:hover:after {content: ""; position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-color: rgba(0,0,0,0.8); transition: border-radius 0.3s;}
+			#drag .bxfrm .bx.picked:hover:after {border-radius: 50%;}
+			#drag .bxfrm .bx:nth-of-type(1) {background-image: url(./img/monami.png); background-position: 50% 0;}
+			#drag .bxfrm .bx:nth-of-type(2) {left: 34.66666%; background-image: url(./img/modetour.png); background-position: 50% 0;}
+			#drag .bxfrm .bx:nth-of-type(3) {left: 69.22222%; background-image: url(./img/coupang.png); background-position: 50% 0;}
+			#drag .bxfrm .bx .text {opacity: 0; position: relative; z-index: 10; display: block; margin-top: -100%; padding: 10px; width: 100%; height: 100%; text-align: center;}
+			#drag .bxfrm .bx:hover .text {opacity: 1;}
+			#drag .bxfrm .bx:hover .text::selection {background-color: transparent;}
+			#drag .bxfrm .bx:hover .text .dot {display: none;}
+			#drag .bxfrm .bx:hover .text span {display: block; color: #fff;}
+			#drag .bxfrm .bx:hover:not(:nth-child(2)) .text span:nth-child(1) {margin-top: 30%;}
+			#drag .bxfrm .bx:hover .text span:nth-child(1) {margin-top: 25%; font-weight: 700; font-size: 1.4em;}
+			#drag .bxfrm .bx:hover .text span:nth-child(2) {margin-top: 5%; font-weight: 100; font-size: 0.8em;}
+			#drag .bxfrm .bx:hover .text span::selection {background-color: transparent;}
+
+			#drag .bxfrm .bx .line {position: absolute; z-index: 10; top: 0; left: 0; width: 100%; height: 100%; transition: border-radius 0.3s;}
+			#drag .bxfrm .bx.picked .line {border-radius: 50%;}
+			#drag .bxfrm .bx .line:before {content: ""; position: absolute; top: 15px; right: 15px; bottom: 15px; left: 15px; border: 1px solid #fff; /*box-shadow: 0 0 0 25px rgba(255,255,255,0.3);*/ opacity: 0; /*transform: scale(1);*/ transition: all 0.3s}
+			#drag .bxfrm .bx.picked .line:before {border-radius: 50%;}
+			#drag .bxfrm .bx .line:hover:before {/*transform: scale(1);*/ opacity: 1}
+
+			#mediaWork {display: none; width: 100%; height: 100%; margin-top: -15vh; padding: 0 15px; text-align: center;}
+			#mediaWork .notice {font-size: 0.8vw; font-weight: 100; padding-bottom: 1vh; color: #ccc;}
+			#mediaWork .bxfrm {width: 100%;}
+			#mediaWork .bxfrm .bx {overflow: hidden; width: 100%; height: 210px; margin-bottom: 50px;}
+			#mediaWork .bxfrm .bx .page {float: left; margin-left: 5%; margin-right: 5%; width: 40%; border: 1px solid #ddd;}
+			#mediaWork .bxfrm .bx .page img {background-position: 50% 0; width: 100%;}
+			#mediaWork .bxfrm .bx .text {float: left; width: 50%; text-align: center;}
+			#mediaWork .bxfrm .bx .text span {display: block;}
+			#mediaWork .bxfrm .bx .text span.title {font-size: 5vw; line-height: 50px; font-weight: 900;}
+			#mediaWork .bxfrm .bx .text span.tools {padding-bottom: 0.5vh; font-size: 2vw;}
+			#mediaWork .bxfrm .bx .text a.button {position: relative; margin: auto; display: block; width: 120px; height: 40px; background-color: #f4b82a; border-radius: 30px; line-height: 40px; color: #fff;}
+			#mediaWork .bxfrm .bx .text a.button:hover {background-color: #3d899e;}
+			#mediaWork .bxfrm .bx .text .desc {font-weight: 300; padding-bottom: 2vh; font-size: 1.8vw;}
+			#mediaWork .bxfrm .bx .text .desc .hide {display: none;}
+
+		#contact .sectionInner {position: relative;}
+		#contact .moveImg {position: relative; width: 100%; height: 100%; animation: fadein-illus 1s forwards;}
+		#contact .moveImg img {position: absolute; width: 55px; opacity: 1;}
+		#contact .moveImg img:nth-child(1) {left: 0; top: 20vh; animation: cloudL 45s linear infinite;}
+		#contact .moveImg img:nth-child(2) {left: 0; top: 5vh; animation: cloudL 70s linear -100s infinite;}
+		#contact .moveImg img:nth-child(3) {left: 0; top: 35vh; animation: cloudL 60s linear -200s infinite;}
+		#contact .moveImg img:nth-child(4) {left: 0; top: 15vh; animation: cloudL 45s linear -300s infinite;}
+		#contact .bgColor {position: absolute; right: 0; width: 70%; height: 100%; background-color: #83b6c0;}
+
+		#contact.active .leftLine {margin-top: 95px;}
+		#contact.active .rightLine {margin-top: 95px;}
+		#contact img.mobile {position: absolute; top: 25vh; left: 50%; width: 40px; margin-top: 35px; margin-left: -16px; transform: rotate(15deg); animation-name: mobile; animation-duration: 2s; animation-timing-function: cubic-bezier(0.65, 0.6, 0.49, 1.33); animation-iteration-count: infinite;}
+		#contact .copy {position: absolute; bottom: 5vh; left: 50%; font-family: Montserrat; transform: translate(-50%, 0); white-space: nowrap;}
+		#contact span {position: absolute; left: 0; margin-top: 800px; width: 100%; text-align: center; font-size: 1.6em; font-family: Oswald ;}
+		#contact.active span:nth-of-type(1) {top: 45%; transition-delay: 0.6s; font-size: 2em; font-weight: 900;}
+		#contact.active span:nth-of-type(2) {z-index: 0; top: 50%; transition-delay: 0.8s; font-size: 3em; font-weight: 700;}
+		#contact.active span:nth-of-type(2):before {content: ''; position: absolute; z-index: -1; bottom: 0; left: 50%; width: 420px; height: 35px; background-color: #f4b82a; transform: translate(-50%, 0);}
+		#contact.active span:nth-of-type(3) {top: 65%; transition-delay: 1.1s;}
+		#contact.active span:nth-of-type(4) {top: 70%; transition-delay: 1.4s;}
+		#contact.active span:nth-of-type(5) {top: 75%; transition-delay: 1.7s;}
+		#contact.active span {margin-top: 0;  transition: margin-top 1.5s cubic-bezier(0.51, 0.63, 0, 1.01);}
+
+
+		@keyframes scroll_down_btn-animation {
+		  0% {transform: translate(0, 0); opacity: 0;}
+		  40% {opacity: 1;}
+		  80% {transform: translate(0, 20px); opacity: 0;}
+		  100% {opacity: 0;}
+		}
+		
+		@keyframes scroll_down_btn-animation {
+		  0% {transform: translate(0, 0); transform: translate(0, 0); opacity: 0;}
+		  40% {opacity: 1;}
+		  80% {transform: translate(0, 20px); transform: translate(0, 20px); opacity: 0;}
+		  100% {opacity: 0;}
+		}
+
+		@keyframes w_line {
+		  from {width: 0; opacity: 0.03;}
+		  to {width: 90%; opacity: 1;}
+		}
+
+		@keyframes h_line {
+		  from {height: 0; opacity: 0.03;}
+		  to {height: 90%; opacity: 1;}
+		}
+
+		@keyframes cloud_one {
+		  from {right: 5%;}
+		  to {right: 20%;}
+		}
+
+		@keyframes cloud_two {
+		  from {right: 60px;}
+		  to {right: -30px;}
+		}
+
+		@keyframes cloud_three {
+		  from {left: 50px;}
+		  to {left: -100px;}
+		}
+
+		@keyframes cloud_four {
+		  from {left: 5%;}
+		  to {left: 20%;}
+		}
+
+		@keyframes mobile {
+		  0% { }
+		  50% {transform: translateY(15px) rotate(15deg);}
+		  100% { }
+		}
+
+		
+		/* ************ */
+		/* media */
+		/* ************ */
+
+		@media screen and (max-width: 1024px) {
+			/*section .hdtit {width: 90%; margin-right: 10%; transition: all 0.6s;}*/
+			#drag {height: 100%; margin: -130px 2% 0; text-align: center; transition: all 0.6s;}
+			#drag .guide {top: 58%; margin-left: -7px; left: 50%; bottom: auto; transform: translate(-50%, 0);}
+			#drag .guide .hide {display: none;}
+			#drag>img {position: absolute; left: 50%; margin-left: -40px; margin-right: 0; width: 485px; transform: translate(-50%, 0);}
+			#drag .frmWrap {left: 50%; margin-left: -18px; margin-top: 23px; width: 386px; height: 220px; transform: translate(-50%, 0);}
+			#drag .bxfrm {position: absolute; float: none; margin-left: -20px; top: 60%;  width: 100%;}
+
+			#drag .bxfrm .bxDescription {margin-top: 15px;}
+			#drag .bxfrm .bxDescription>div {display: inline-block;}
+			#drag .bxfrm .bxDescription>div.tools {display: none;}
+			#drag .bxfrm .bxDescription>div.desc {display: block; padding-bottom: 1%; height: 60px;}
+			#drag .bxfrm .bxDescription .notice {padding-bottom: 1%;}
+			#drag .bxfrm .bxDescription .button {position: absolute; z-index: 20; top: 10px; left: 20%; transform: translate(-50%, 0);}
+
+			#drag .bxfrm .bx {bottom: auto; width: 20%; padding-top: 20%; margin-top: 15px;}
+			#drag .bxfrm .bx:nth-of-type(1) {left: 15%;}
+			#drag .bxfrm .bx:nth-of-type(2) {left: 40%; background-image: url(./img/modetour.png); background-position: 50% 0;}
+			#drag .bxfrm .bx:nth-of-type(3) {left: 65%; background-image: url(./img/coupang.png); background-position: 50% 0;}
+
+			#drag .bxfrm .bx:hover:not(:nth-child(2)) .text span:nth-child(1) {margin-top: 20%;}
+			#drag .bxfrm .bx .text {margin-top: -93%;}
+			#drag .bxfrm .bx:hover .text span:nth-child(1) {margin-top: 15%;}
+
+			#about {transition: all 0.6s;}
+			#about .subtit .hide {display: none;}
+			#about .profile .abouttit {margin-left: 0%;}
+			#about .history .abouttit {margin-right: 0%;}
+
+			#about .profile {width: 50%; font-size: 1em; text-align: center;}
+			#about .history {width: 50%; font-size: 1em; text-align: center;}
+
+			#about .profile .subtit {margin-left: 15%; text-align: left;}
+			#about .profile .info {text-align: left;}
+			#about .history .subtit {margin-left: 0%; text-align: left;}
+			#about .history .info {text-align: left;}
+
+		}
+
+
+		@media screen and (max-width: 768px) {
+			section:nth-child(2) .tit .titLine {margin-top: 22px; width: 50px;}
+			section .tit .titText {margin-top: 5px;}
+
+			section:nth-child(2) .hdtit .titLine {margin-top: 22px; width: 50px;}
+			section:nth-child(2) .hdtit .titText {margin-top: 15px;}
+			
+			#main button {display: none;}
+			#main p {display: none;}
+			#main .text .wp {top: auto; top: 56%; /*transform: translate(-50%, 0);*/}
+			#about .cloud img {position: absolute; width: 20%; transition: all 0.6s;}
+			#about .cloud img:nth-child(1) {top: 0;}
+			#about .cloud img:nth-child(3) {top: 20%;}
+			#about .cloud img:nth-child(4) {bottom: 5%;}
+
+			#barWrap {height: 0;}
+			#lineBar {display: block;}
+
+			#about .profile {font-size: 2vw;}
+			#about .history {font-size: 2vw;}
+			#about .profile .subtit {margin-left: 10%;}
+
+			#drag {display: none;}
+
+			#mediaWork {display: block; transition: 0.6s;}
+
+
+			#contact span {font-size: 3vw;}
+			#contact.active span:nth-of-type(1) {font-size: 4vw;}
+			#contact.active span:nth-of-type(2) {font-size: 5.5vw;}
+			#contact.active span:nth-of-type(2):before {width: 50%;}
+			#lineBar li .title {height: 60px;}
+		}
+
+		@media screen and (max-width: 480px) {
+			/*#main {height: 0;}*/
+			#main .text .go {font-size: 20vw; transition: 0.6s; margin-top: -50px;}
+			#main .text .wp {margin-top: -30px; transform: translate(-50%, 0); font-size: 6vw; transition: 0.6s;}
+			
+			#main .m_line {bottom: 5%;}
+			#main .m_line i:nth-child(1) {height: 1px;}
+			#main .m_line i:nth-child(2) {height: 1px;}
+			#main .m_line i:nth-child(3) {width: 1px;}
+			#main .m_line i:nth-child(4) {width: 1px;}
+
+			#about {transition: all 0.6s }
+			#about div .abouttit {top: -45px; font-size: 7vw; position: static;}
+			#about .subtit {width: 20%;}
+			#about .proWrap {width: 100%; height: 100%; margin-top: 25px;}
+			#about .hisWrap {width: 100%; height: 100%; margin-top: 25px;}
+			#about .profile {float: none; margin-top: -50%; font-size: 3vw; width: 100%; height: 50%;}
+			#about .profile .subtit {margin-left: 10%;}
+			#about .history {float: none; margin-top: 32%; font-size: 3vw; width: 100%; height: 50%;}
+			#about .history .subtit {margin-left: 10%;}
+			#about span {line-height: 20px;}
+			#about span.h_wide {height: 60px; line-height: normal;}
+
+			#contact span {font-size: 5vw;}
+			#contact.active span:nth-of-type(1) {font-size: 6vw;}
+			#contact.active span:nth-of-type(2) {font-size: 7.5vw;}
+			#contact.active span:nth-of-type(2):before {width: 60%;}
+			#contact .copy {font-size: 3.2vw; bottom: 10vh}
+			
+			#lineBar {margin-left: 5%; margin-right: 5%; margin-top: -50px; width: 90%; transition: all 0.6s;}
+			#lineBar li {position: relative; margin-bottom: 80px; height: 30px;}
+			#lineBar li .title {float: none; width: 100%; height: 30px; font-size: 4vw;}
+			#lineBar li .bar {float: none; width: 100%; color: #000;}
+			#lineBar li .text {float: none; width: 20%; font-size: 4vw; padding-left: 0; line-height: normal; font-family: 	;}
+			#lineBar li p {width: 80%; margin-right: 0; top: 100%; margin-top: 35px; font-size: 2.8vw;}
+			
+			nav {position: relative; z-index: 9999; top: 100%; margin-top: -57px; right: 0; width: 100%; height: 100%; transform: translate(0, 0);}
+			nav:after {content: ''; position: absolute; z-index: -1; top: 0; right: 0; left: 0; width: 100%; height: 57px; background-color: #000/*3d899e*/; opacity: 0.5;}
+			nav i {position: relative; float: left; width: 20%; font-size: 3em; color: #fff;}
+			nav i+i {margin-top: 0;}
+			nav i .navBtn {opacity: 0;}
+			nav i .navText {display: inline-block; top: 13px; right: 5px; width: 100%; margin-right: 15px; overflow: visible; font-size: 5vw;}
+			nav i .navText em {width: auto; padding-right: 0; font-family: Noto Sans KR; font-weight: 300; text-transform: uppercase;}
+			nav i:nth-child(2) .navText em {transform: translate(3%, 0);}
+			nav i:nth-child(3) .navText em {transform: translate(-4%, 0);}
+			nav i:nth-child(4) .navText em {transform: translate(-12%, 0);}
+			nav i:nth-child(5) .navText em {transform: translate(8%, 0);}
+			nav i .navText:after {display: none;}
+			nav i.active {font-size: 3em;}
+			nav i.active .navText {display: block; width: 100%;}
+			nav i:hover .navText {width: 100%;}
+
+			section .hdtit .titText {font-size: 8vw;}
+			section .hdtit .subText {font-size: 6vw;}
+			section .hdtit img.me  {width: 30%;}
+
+			#contact img.mobile {top: 20vh;}
+				
+			#mediaWork .notice {display: none;}
+			#mediaWork .bxfrm .bx {height: 180px; margin-bottom: 10px;}
+			#mediaWork .bxfrm .bx .page {overflow: hidden;margin-top: 6%; height: 100px;}
+			#mediaWork .bxfrm .bx .page img {background-position: 50% 0; width: 100%;}
+
+		}
+
+	</style>
+		
+</head>
+<body>
+	<div id="wrap">
+		<header></header>
+		<div id="container">
+			<section id="main">
+				<div class="sectionInner">
+					<img class="bg">
+					<div class="text">
+						<span class="go">GO</span>
+						<!-- <img class="je" src="./img/logo.png"> -->
+						<span class="wp">Web Publisher</span>
+					</div>
+					<div class="m_line">
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+					</div>
+					<div class="wrapper">
+				    	<!-- begin Scroll Down Button -->
+				    	<button type="button" class="scroll_down" id="scroll_down"></button>
+				    	<!-- end Scroll Down Button -->
+				  	</div>
+				  	<p>SCROLL</p>
+			  </div> <!-- .sectionInner -->
+			</section>
+			<section id="about">
+				<div class="sectionInner">
+					<div class="cloud">
+						<img src="./img/cloud_01.png">
+						<img src="./img/cloud_02.png">
+						<img src="./img/cloud_03.png">
+						<img src="./img/cloud_04.png">
+					</div>
+					<div class="hdtit">
+						<div class="titLine"></div><br>
+						<div class="titText">Hello.</div><br>
+						<div class="subText">ABOUT ME</div><br>
+						<div class="subLine"></div><br>
+						<img class="me" src="./img/me.png">	
+					</div> <!-- /.hdtit -->
+					<div class="inner">
+						<input type="checkbox" id="btn_l">
+						<input type="checkbox" id="btn_r">
+							<div class="profile">
+								<label for="btn_l" class="abouttit">PROFILE</label>
+								<div class="proWrap">
+									<div class="subtit">
+										<span>NAME</span>
+										<span>POSITION</span>
+										<span>BIRTH</span>
+										<span>LIVE IN</span>
+										<span>PHONE</span>
+									</div>
+									<div class="info">
+										<span>KOH JEONG EUN</span>
+										<span>WEB PUBLISHER</span>
+										<span>1992.07.12</span>
+										<span>GWANG-JIN SEOUL</span>
+										<span>010.5505.2520</span>
+									</div>
+								</div>	
+							</div>
+							<div class="history">
+								<label for="btn_r" class="abouttit">HISTORY</label>
+								<div class="hisWrap">
+									<div class="subtit">
+										<span class="h_wide"><i class="hide">20</i>18.09 ~ <i class="hide">20</i>19.01</span>
+										<span><i class="hide">20</i>13.03 ~ <i class="hide">20</i>16.02</span>
+										<span>15.07</span>
+									</div>
+									<div class="info">
+										<span>그린컴퓨터아트학원<br>디지털컨버전스 양성과정 이수<br>(UI/UX엔지니어링, 프론트앤드)</span>
+										<span>가천대학교 산업경영공학과 졸업</span>
+										<span>정보처리기사 취득</span>
+									</div>
+								</div>
+							</div>
+						</div> <!-- /.inner -->
+					</div> <!-- /.sectionInner -->
+			</section>
+			<section id="skill">
+				<div class="sectionInner">
+					<div class="hdtit">
+						<div class="titLine"></div><br>
+						<div class="titText">SKILLS.</div>
+					</div> <!-- /.hdtit -->
+					<div class="inner">
+						<ul id="barWrap">
+							<li class="barList">
+								<p class="barTitle">HTML5</p>
+								<div class="graphFrm">
+									<div class="barGraph">
+										<canvas data-percent="85" data-barColor="#f2b134" data-barWidth="15" data-time="2"></canvas>
+										<p class="barText"></p>
+									</div>
+								</div>
+								<span>웹접근성, 웹표준에 맞는 <br>홈페이지를 만들 수 있습니다.</span>
+							</li>
+							<li class="barList">
+								<p class="barTitle">CSS3</p>
+								<div class="graphFrm">
+									<div class="barGraph">
+										<canvas data-percent="90" data-barColor="#ed5339" data-barWidth="15" data-time="2"></canvas>
+										<p class="barText">0</p>
+									</div>
+								</div>
+								<span>스타일의 속성을 이해하고 있고, <br>css만으로 반응형 홈페이지를 만들 수 있습니다.</span>
+							</li>
+							<li class="barList">
+								<p class="barTitle">JAVA SCRIPT</p>
+								<div class="graphFrm">
+									<div class="barGraph">
+										<canvas data-percent="30" data-barColor="#404040" data-barWidth="15" data-time="2"></canvas>
+										<p class="barText">0</p>
+									</div>
+								</div>
+								<span>기본적인 이론을 학습하였습니다.</span>
+							</li>
+							<li class="barList">
+								<p class="barTitle">JQUERY</p>
+								<div class="graphFrm">
+									<div class="barGraph">
+										<canvas data-percent="40" data-barColor="#112f41" data-barWidth="15" data-time="2"></canvas>
+										<p class="barText">0</p>
+									</div>
+								</div>
+								<span>오픈소스를 활용하여 사용할 수 있고, <br>간단한 효과는 직접 개발할 수 있습니다.</span>
+							</li>
+							<li class="barList">
+								<p class="barTitle">PHOTO SHOP</p>
+								<div class="graphFrm">
+									<div class="barGraph">
+										<canvas data-percent="70" data-barColor="#068587" data-barWidth="15" data-time="2"></canvas>
+										<p class="barText">0</p>
+									</div>
+								</div>
+								<span>포토샵의 기본적인 기능을 다룰 수 있습니다.</span>
+							</li>
+							<li class="barList">
+								<p class="barTitle">ILLUSTRATOR</p>
+								<div class="graphFrm">
+									<div class="barGraph">
+										<canvas data-percent="60" data-barColor="#4fb99f" data-barWidth="15" data-time="2"></canvas>
+										<p class="barText">0</p>
+									</div>
+								</div>
+								<span>일러스트의 기본적인 기능을 다룰 수 있습니다.</span>
+							</li>
+						</ul> <!-- /.barWrap -->
+						<ul id="lineBar">
+							<li class="barList">
+								<div class="title">HTML5</div>
+								<div class="bar"></div>
+								<div class="text"></div>
+								<p>웹접근성, 웹표준에 맞는 홈페이지를 만들 수 있습니다.</p>
+							</li>
+							<li class="barList">
+								<div class="title">CSS3</div>
+								<div class="bar"></div>
+								<div class="text"></div>
+								<p>스타일의 속성을 이해하고 있고, css만으로 반응형 홈페이지를 만들 수 있습니다.</p>
+							</li>
+							<li class="barList">
+								<div class="title">JAVA SCRIPT</div>
+								<div class="bar"></div>
+								<div class="text"></div>
+								<p>기본적인 이론을 학습하였습니다.</p>
+							</li>
+							<li class="barList">
+								<div class="title">JQUERY</div>
+								<div class="bar"></div>
+								<div class="text"></div>
+								<p>오픈소스를 활용하여 사용할 수 있고, 간단한 효과는 직접 개발할 수 있습니다.</p>
+							</li>
+							<li class="barList">
+								<div class="title">PHOTO SHOP</div>
+								<div class="bar"></div>
+								<div class="text"></div>
+								<p>포토샵의 기본적인 기능을 다룰 수 있습니다.</p>
+							</li>
+							<li class="barList">
+								<div class="title">ILLUST RATOR</div>
+								<div class="bar"></div>
+								<div class="text"></div>
+								<p>일러스트의 기본적인 기능을 다룰 수 있습니다.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section id="work">
+				<div class="sectionInner">
+					<div class="hdtit">
+						<div class="titLine"></div><br>
+						<div class="titText">WORKS.</div>
+					</div> <!-- /.hdtit -->
+					<div class="inner">
+						<div id="drag">
+							<img src="./img/pc_03.png">
+							<div class="frmWrap">
+								<div class="frm">
+									<img src="./img/monami.png">
+								</div>
+							</div>
+							<span class="guide">* <span class="hide">오른쪽</span> 하단의 홈페이지를 드래그하여 PC에 넣어보세요.</span>
+							<div class="bxfrm">
+								<div class="bxDescription">
+									<div class="tit">MONAMI</div>
+									<div class="tools">HTML5 · CSS3 · JQuery  · 반응형웹</div>
+									<div class="desc">연습용으로 만들어본 모나미 리뉴얼 사이트입니다.<br>HTML5과 CSS3, JQuery를 이용해 만들었으며, 반응형 웹을 구현했습니다.</div>
+									<div class="notice">* 실제 사이트가 아니며 포트폴리오 용도로 제작한 페이지 입니다.</div>
+									<a href="./MONAMI/index.html" class="button" target="_blank"></a>
+								</div>
+								<em class="bx" data-path="./img/monami.png" data-desc="연습용으로 만들어본 모나미 리뉴얼 사이트입니다.<br>HTML5과 CSS3, JQuery를 이용해 만들었으며, 반응형 웹을 구현했습니다.">
+									<span class="text">
+										<span class="title">MONAMI</span>
+										<span class="tools">HTML5 · CSS3 <br><span class="dot">·</span> JQuery  · 반응형웹</span>
+										<span class="notice"></span>
+										<a href="./MONAMI/index.html" class="button"></a>
+									</span>
+									<span class="line">
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+									</span>
+								</em>
+								<em class="bx" data-path="./img/modetour.png" data-desc="HTML/CSS로만 구현한 모두투어 홈페이지 카피 사이트입니다.">
+									<span class="text">
+										<span class="title">MODETOUR</span>
+										<span class="tools">HTML5 · CSS3</span>
+										<span class="notice"></span>
+										<a href="./MODETOUR/index.html" class="button"></a>
+									</span>
+									<span class="line">
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+									</span>
+								</em>
+								<em class="bx" data-path="./img/coupang.png" data-desc="HTML/CSS로만 구현한 쿠팡 홈페이지 카피 사이트입니다.">
+									<span class="text">
+										<span class="title">COUPANG</span>
+										<span class="tools">HTML5 · CSS3</span>
+										<span class="notice"></span>
+										<a href="./COUPANG/index.html" class="button"></a>
+									</span>
+									<span class="line">
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+									</span>
+								</em>
+							</div>
+						</div><!-- /.sectionInner -->
+					</div>
+					<div id="mediaWork">
+						<div class="notice">* 실제 사이트가 아니며 포트폴리오 용도로 제작한 페이지 입니다.</div>
+						<ul class="bxfrm">
+							<li class="bx">
+								<div class="page">
+									<img src="./img/monami.png">
+								</div>
+								<div class="text">
+									<span class="title">MONAMI</span>
+									<span class="tools">HTML5 · CSS3 · JQuery  · 반응형웹</span>
+									<div class="desc"><span class="hide">연습용으로 만들어본 모나미 리뉴얼 사이트입니다.</span><br>HTML5과 CSS3, JQuery를 이용해 만들었으며, 반응형 웹을 구현했습니다.</div>
+									<a href="./MONAMI/index.html" class="button">VIEW SITE</a>
+								</div>
+							</li>
+							<li class="bx">
+								<div class="page">
+									<img src="./img/modetour.png">
+								</div>
+								<div class="text">
+									<span class="title">MODETOUR</span>
+									<span class="tools">HTML5 · CSS3</span>
+									<div class="desc">HTML/CSS로만 구현한 모두투어 홈페이지 카피 사이트입니다.</div>
+									<a href="./MODETOUR/index.html" class="button">VIEW SITE</a>
+								</div>
+							</li>
+							<li class="bx">
+								<div class="page">
+									<img src="./img/coupang.png">
+								</div>
+								<div class="text">
+									<span class="title">COUPANG</span>
+									<span class="tools">HTML5 · CSS3</span>
+									<div class="desc">HTML/CSS로만 구현한 쿠팡 홈페이지 카피 사이트입니다.</div>
+									<a href="./COUPANG/index.html" class="button">VIEW SITE</a>
+								</div>
+							</li>
+						</ul>
+					</div> <!-- /.inner -->
+				</div> <!-- /.sectionInner -->
+			</section>
+			<section id="contact">
+				<div class="sectionInner">
+					<div class="hdtit">
+						<div class="titLine"></div><br>
+						<div class="titText">CONTACT.</div>
+					</div> <!-- /.hdtit -->
+					<div class="leftLine"></div>
+					<div class="rightLine"></div>
+					<img class="mobile" src="./img/ico_mobile_01.png">
+					<span>WEB PUBLISHER</span>
+					<span>KOH JEONG EUN</span>
+					<span>NAME : 고정은</span>
+					<span>PHONE : 010-5505-2520</span>
+					<span>E-MAIL : eun9207@gmail.com</span>
+					<div class="copy">KOH JEONG EUN Ⓒ COPY ALLRIGHT RESERVED.</div>
+				</div>
+			</section>
+		</div>
+		<footer></footer>
+	</div>
+<script type="text/javascript">
+
+	// ********************************************************************************
+	// parallax scrolling
+	$.fn.extend({ // step.2) 제이쿼리에 메소드를 추가(복수의 매소드를 추가할때 사용)
+		myScroll : function(option){ // myScroll이라는 제이쿼리 메소드를 추가
+		var O = $(this);
+		var page; // 현재 보고있는 페이지를 나타내는 변수
+		var scroll = { // myScroll에 관련된 메소드들이 모여있는 객체...
+			init : function(){ // 기본세팅 메소드
+
+				// step.3) 섹션의 높이 세팅
+				$(window).on('resize', function(){ // window가 리사이즈 될때마다...
+
+					O.each(function(i){ // section의 갯수만큼 반복
+
+					var H;
+
+					if (option.height) { // option.height가 존재한다면...
+						if ($.isArray(option.height)) {
+							if (option.height[i]=='auto') { // 배열인자의 값이 'auto'라면 
+								H = $(window).height(); // 브라우저 높이로 지정
+							} else { // 숫자라면
+								H = option.height[i]; // 숫자로 높이 지정
+							}
+							
+						} else {
+							H = option.height;
+						}
+					} else { // option.height가 없거나 false라면...
+						H = $(window).height(); // window의 높이를 리턴
+					}
+
+					if(option.minHeight&&H<option.minHeight) H=option.minHeight; // 섹션의 최소 높이를 지정
+
+					if ($(window).width()>option.minWidth) {
+						// console.log(H);
+						$(this).css({'height' : H+'px'});
+					} else {
+						if ($(this).attr('style')) $(this).attr('style', $(this).attr('style').replace(/height: .+px;/, ''));
+					}
+
+					O.first().add(O.last()).height($(window).height());
+					
+					});
+				}).resize();
+
+				// step.4) 스크롤이 되면 현재 페이지를 보여줘야한다.
+				$(document).on('scroll', function(){ // 문서가 스크롤 되면
+
+					var baseline = $(window).scrollTop() + $(window).height()/2; // 베이스라인 설정
+
+					O.each(function(i){ // 각 섹션만큼 반복
+
+					var H = $(this).offset().top; // 각 섹션의 위치값
+					if (baseline>H) page = i; // 베이스라인보다 위로 올라가는 순간 그 섹션이 몇번째 섹션인지 리턴
+					});
+
+					O.removeClass('active').eq(page).addClass('active'); // 현재 보이는 페이지에 active를 준다.
+					$('#container nav a').removeClass('active').eq(page).addClass('active'); // 현재 보이는 페이지에 active를 준다.
+
+					scroll.nav(page); // nav메소드 실행 - page : 현재 보이는 페이지
+				}).scroll();
+
+				// step.5) 마우스 휠 이벤트
+				$('html, body').on('mousewheel', function(){ // 문서내에서 휠이 동작했을때...
+					
+					if ($(window).width()>option.minWidth) {
+
+						if($(this).is(":animated")) return false; // 화면이 움직이는 도중에는 중지
+
+						var winHeight = $(window).height();
+						var delta; // 휠의 방향을 담을 변수
+						event.wheelDelta<0?delta=1:delta=-1; // 휠방향에 따라 1/-1을 리턴
+
+						if (winHeight>option.minHeight) { // window가 최소사이즈보다 크다면...
+
+						if ((page==0&&delta==-1)||(page==O.length-1&&delta==1)) return false; // 1페이지보다 위로 혹은 끝페이지보다 밑으로 가고자 할때 중지시켜준다.
+
+						scroll.action(page+=delta); // 스크롤액션을 실행
+						return false; // wheel의 기본기능을 막아준다.
+						}
+					}
+				});
+
+				// step.6) 네비생성
+				var nav = $('<nav style="position: fixed;"></nav>');
+				O.last().after(nav); // 마지막 section의 뒤에 nav를 삽입.
+				O.each(function(i){ // 섹션의 갯수만큼 반복
+					var v;
+					option.nav ? v = option.nav[i] : v = ''; // 네비배열이 있으면 텍스트, 없으면 빈값
+					nav.append('<i>'+v+'</i>'); //nav안에 i태그 삽입
+				});
+				nav.find('i').on('click', function(){ // i를 클릭하면...
+
+					if($('html, body').is(":animated")) return false; // 화면이 움직이는 도중에는 중지
+					var idx = $(this).index();
+					scroll.action(idx); // 클릭한 페이지로 action메소드 실행
+				});
+				scroll.nav(page); //현재페이지를 표시한다.
+			},
+			action : function(to){ // 동작 메소드
+				
+				var T = O.eq(to).offset().top;
+
+				$('html, body').animate({scrollTop : T}, option.speed, option.ease);
+			},
+			nav : function(page){
+				$('nav i').removeClass('active').eq(page).addClass('active');
+			}
+		} // scroll객체
+
+		scroll.init();
+		} // prototype (myScroll)
+	}); // extend
+
+	$('section').myScroll({
+		// height : ,
+		minWidth : 768,
+		minHeight : 900,// 섹션의 최소 높이
+		ease : 'easeOutQuad',
+		speed : 500,
+		nav : [
+			'<span class="navBtn">J</span><span class="navText"><em>main</em></span>',
+			'<span class="navBtn">E</span><span class="navText"><em>about</em></span>',
+			'<span class="navBtn">O</span><span class="navText"><em>skill</em></span>',
+			'<span class="navBtn">N</span><span class="navText"><em>work</em></span>',
+			'<span class="navBtn">G</span><span class="navText"><em>contact</em></span>'
+		]
+	});
+
+	// *********************************************************************************************
+	// skill Progress Bar
+	$(function(){
+		var canvas = document.querySelectorAll('.barGraph canvas');
+
+		var ctxArray = [];
+		for(i=0;i<canvas.length;i++){
+			ctxArray.push(canvas[i].getContext('2d'))
+		}
+
+		var state;
+		var W,H;
+		$(window).resize(function(){
+
+			W = $('.barGraph').innerWidth();
+			H = $('.barGraph').innerHeight();
+
+			ctxArray.forEach(function(v,i){
+				v.canvas.width = W;
+				v.canvas.height = H;
+			});
+		}).resize();
+
+		var barArray = [];
+		var bar = {
+			draw : function(animate){
+
+				ctxArray.forEach(function(O,I){
+					O.progress = 0;
+					animate ? bar.update(O,I) : bar.set(O,I);
+				});
+			},
+			update : function(O,I,interval){
+
+				var percent = O.canvas.getAttribute('data-percent');
+				var barColor = O.canvas.getAttribute('data-barColor');
+				var barWidth = O.canvas.getAttribute('data-barWidth');
+				var time = O.canvas.getAttribute('data-time');
+
+				setTimeout(function(){
+
+					if (O.progress<=percent*(time*2)) {
+
+						var txt = Math.floor(O.progress/(time*2));
+						$('.barText').eq(I).text(txt);
+
+						O.clearRect(0, 0, W, H);
+
+						O.beginPath();
+						O.arc(W/2,H/2,W/2-barWidth/2,Math.PI*(-0.5),Math.PI*((O.progress*(0.01/time))-0.5));
+						O.strokeStyle=barColor;
+						O.lineWidth=barWidth;
+						O.stroke();
+
+						bar.update(O,I);
+						O.progress++;
+					}
+				},interval);
+			},
+			set : function(O,I){
+				var percent = O.canvas.getAttribute('data-percent');
+				var barColor = O.canvas.getAttribute('data-barColor');
+				var barWidth = O.canvas.getAttribute('data-barWidth');
+				var time = O.canvas.getAttribute('data-time');
+
+				var txt = O.canvas.getAttribute('data-percent');
+				$('.barText').eq(I).text(txt);
+
+				O.clearRect(0, 0, W, H);
+
+				O.beginPath();
+				O.arc(W/2,H/2,W/2-barWidth/2,Math.PI*(-0.5),Math.PI*((percent*(0.02))-0.5));
+				O.strokeStyle=barColor;
+				O.lineWidth=barWidth;
+				O.stroke();
+			}
+		}
+		
+		$(window).scroll(function(){
+
+			var baseLine = $(window).scrollTop()+$(window).height();
+			var barOffset = $('#barWrap').offset().top;
+			if (baseLine>barOffset&&!state) {
+				bar.draw(true);
+				state = true;
+			}
+		});
+
+		$(window).on('resize',function(){		
+			if (state) bar.draw(false);
+		});
+	});
+
+	// *********************************************************************************************
+	// work dragAndDrop
+	$.fn.extend({
+
+	dragAndDrop : function(option){
+		var O = $(this);
+		var frm = O.find(option.target);
+		var btn = O.find(option.button);
+		var btnIndex;
+		var mouseState = false;
+
+		var drag = {
+			init : function(){
+
+				var frmArea;
+
+				$(window).resize(function(){
+					frmArea = {
+						top : frm.offset().top,
+						bottom : frm.offset().top+frm.height(),
+						left : frm.offset().left,
+						right : frm.offset().left+frm.width()
+					}
+				}).resize();
+
+				var btnPosition, startPoint;
+
+				btn.on('mousedown', function(){
+
+					btnPosition = {
+						top : $(this).position().top,
+						left :$(this).position().left
+					}
+
+					// console.log(btnPosition);
+
+					mouseState = true;
+
+					btnIndex = $(this).index('.bx');
+
+					$(this).addClass('picked');
+
+					startPoint = {
+						top : event.pageY,
+						left : event.pageX
+					}
+				});
+
+				$(document).on('mousemove', function(){
+
+					if (!mouseState) return false;
+
+					if (
+						event.pageY>frmArea.top &&
+						event.pageY<frmArea.bottom &&
+						event.pageX>frmArea.left &&
+						event.pageX<frmArea.right
+					) {
+						frm.addClass('droped');
+					} else {
+						frm.removeClass('droped');
+					}
+
+					var movePoint = {
+						top : event.pageY-startPoint.top,
+						left : event.pageX-startPoint.left
+					}
+
+					O.find('.picked').css({
+						top : (btnPosition.top+movePoint.top)+'px',
+						left : (btnPosition.left+movePoint.left)+'px'
+					});
+				});
+
+				$(document).on('mouseup', function(){
+
+					mouseState = false;
+
+					frm.removeClass('droped');
+
+					var endPoint = {
+						top : event.pageY,
+						left : event.pageX
+					}
+
+					O.find('.bx').attr('style', '');
+
+					O.find('.picked').removeClass('picked');
+
+					if (
+						endPoint.top>frmArea.top &&
+						endPoint.top<frmArea.bottom &&
+						endPoint.left>frmArea.left &&
+						endPoint.left<frmArea.right
+					) {
+						drag.action(btnIndex);
+					}
+
+					
+				});
+
+			},
+			action : function(idx){
+
+				var bgColor = btn.eq(idx).css('background-color');
+				var bgImage = btn.eq(idx).css('background-image');
+				var bgPath = btn.eq(idx).attr('data-path');
+				var bgText = btn.eq(idx).text();
+				var bgHtml = btn.eq(idx).html();
+				var tit = btn.eq(idx).find('.title').text();
+				var tools = btn.eq(idx).find('.tools').text();
+				var desc = btn.eq(idx).attr('data-desc');
+				var button = btn.eq(idx).find('.button').attr('href');
+
+				$('.bxDescription').find('.tit').text(tit);
+				$('.bxDescription').find('.tools').text(tools);
+				$('.bxDescription').find('.desc').html(desc);
+				$('.bxDescription').find('.button').attr('href', button);
+
+				switch(option.mode){
+					case 'color': frm.css('background-color' , bgColor); break;
+					case 'image': frm.css('background-image' , bgImage); break;
+					case 'img':
+						frm.html('');
+						$('<img src="#">').appendTo(frm).attr('src', bgPath);
+					break;
+					case 'text': frm.text(bgText); break;
+					case 'html': frm.html(bgHtml); break;
+				}
+
+
+			}
+		} // drag
+
+		drag.init();
+
+	} // dragAndDrop
+}); // prototype
+
+$('#drag').dragAndDrop({
+	mode : 'img', // color , image , text , html
+	target : '.frm',
+	button : '.bx'
+});
+
+
+// *********************************************************************************************
+// skill linebar
+$.fn.lineBar = function(option){
+
+		var O = $(this);
+		var state;
+
+		var bar = {
+			init : function(){				
+
+				O.find('.bar').each(function(i){
+					$(this).append('<em style="float: left; height: 100%; background-color : '+option.barColor[i]+'"></em>');
+				})
+
+				$(document).scroll(function(){
+
+					var baseline = $(window).scrollTop()+$(window).height();
+
+					if(O.offset().top<baseline){
+						bar.action();
+					}
+				}).scroll();
+
+			},
+			action : function(){
+
+				if (state) return false;
+
+				var I = 0;			
+
+				function increase (){
+
+					if (I>=100) return false;
+					state = true;
+					O.find('.barList').each(function(i){
+						if ($(this).find('.text').text()*1<option.percent[i]) {
+							$(this).find('.text').text(I);
+							$(this).find('.bar em').css('width', I+'%');
+						}						
+					});
+					I++;
+					setTimeout(increase, 10/option.speed);
+				}
+				increase();
+			}
+		}
+		bar.init();
+	}
+
+	$('#lineBar').lineBar({
+		speed : 0.7,
+		barColor : ['#f2b134', '#ed5339', '#404040', '#112f41', '#068587', '#4fb99f'],
+		percent : [85, 90, 30, 40, 70, 60]
+	});
+
+// *********************************************************************************************
+// main scroll icon
+(function() {
+	'use strict';
+
+		var btnScrollDown = document.querySelector('#scroll_down');
+
+		function scrollDown() {
+		    var windowCoords = document.documentElement.clientHeight;
+		    (function scroll() {
+		    	if (window.pageYOffset < windowCoords) {
+		       		window.scrollBy(0, 10);
+		        	setTimeout(scroll, 0);
+		    }
+		      	if (window.pageYOffset > windowCoords) {
+		        	window.scrollTo(0, windowCoords);
+		    }
+		   	})();
+		}
+
+	btnScrollDown.addEventListener('click', scrollDown);
+})();
+
+// *******************************************************************************
+
+
+
+</script>
+</body>
+</html>

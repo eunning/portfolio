@@ -1,0 +1,28 @@
+/*RESET*/
+*,:before,:after {margin: 0; padding: 0; color: inherit; text-decoration: inherit; font-style: inherit; border: 0px solid transparent; outline: 0 solid transparent; background: transparent none 50% 50% no-repeat; box-sizing: border-box;}
+ul, ol, li {list-style: none;}
+table {table-layout: fixed;}
+h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: inherit;}
+label, button, [type=button], [type=submit], [type=reset], a {cursor: pointer;}
+img {display: block;} /*문제 있으면 빼기*/
+
+/*CLASS*/
+.clearfix:after {content: ""; display: block; clear: both;}
+.ellipsis {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.hidden {display: none; width: 0; height: 0; visibility: hidden; opacity: 0;}
+.bold {font-weight: 700;}
+
+/*GLOBAL*/
+[type=checkbox], [type=radio] {display: none;}
+.inner {display: block; position: relative; margin: auto; width: 1020px; height: 100%;}
+.inner:after {content: ""; display: block; clear: both;}
+/*container .inner에 모두 block 주기 위해서*/
+.price {font-family: tahoma; font-weight: bold;}
+.price:after {content: "원";}
+
+.thumb {position: relative;}
+.thumb:after {position: absolute; padding: 3px 4px 2px; left: 0; bottom: 0; color: #fff; font-size: 11px;}
+.delivaryFree .thumb:after {content: "무료배송";  background-color: #5ea403;}
+.almostSoldout .thumb:after {content: "품절임박"; background-color: rgb(174,0,0);}
+
+#wrap {font-family: Dotum, sans-serif;}

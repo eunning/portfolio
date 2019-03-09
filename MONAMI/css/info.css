@@ -1,0 +1,29 @@
+/* **************************
+ * HEADER 
+************************** */
+header {}
+
+/* GNB */
+#hdwrap .gnb .serch label[for=serch_btn] {color: #303030;}
+
+/* NAV */
+#hdwrap nav {margin-top: 69px;}
+#hdwrap nav ul li {color: #303030;}
+#hdwrap nav ul li+li:before {background-color: #303030;}
+
+/* **************************
+ * CONTAINER 
+************************** */
+#container {}
+#container .menu {position: relative; height: 130px;}
+#container .menu:after {content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 42px; border: 1px solid #eaeaea;}
+
+#visual {height: 250px; text-align: center; background: url(../img/visual2.jpg); background-position: 0 0; color: #fff;}
+#visual h2 {padding-top: 80px; font-size: 2em; font-weight: 500;}
+#visual span {display: block; margin: 10px auto;}
+#visual span.bar {width: 30px; height: 4px; background: #c40f39;}
+#visual span.info {font-size: 0.9em; font-weight: 200;}
+
+/* KEYFRAMES */
+
+/* DIDIAQUERY 
